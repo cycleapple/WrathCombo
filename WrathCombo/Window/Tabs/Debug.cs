@@ -463,7 +463,8 @@ internal class Debug : ConfigWindow, IDisposable
                     .Where(x => x.ObjectKind == ObjectKind.BattleNpc &&
                                 x.IsTargetable &&
                                 !x.IsDead &&
-                                x.BattleNpcKind is BattleNpcSubKind.Enemy or BattleNpcSubKind.BattleNpcPart);
+                                x.BattleNpcKind is Dalamud.Game.ClientState.Objects.Enums.BattleNpcSubKind.Enemy
+                                    or Dalamud.Game.ClientState.Objects.Enums.BattleNpcSubKind.BattleNpcPart);
 
                     foreach (var enemy in enemies)
                     {
