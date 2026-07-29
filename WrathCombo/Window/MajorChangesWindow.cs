@@ -63,9 +63,9 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
             "Settings > 'Target Options' > 'Heal Stack Customization Options'"
         );
         ImGui.NewLine();
-        if (ImGui.Button("> Open the Settings Tab##majorSettings1"))
+        if (ImGui.Button("> 開啟設定分頁##majorSettings1"))
             P.OnOpenConfigUi();
-        if (ImGui.Button("> Enable the new UI MouseOver option for me"))
+        if (ImGui.Button("> 替我啟用新的介面滑鼠指向選項"))
         {
             Service.Configuration.UseUIMouseoverOverridesInDefaultHealStack = true;
             Service.Configuration.Save();
@@ -108,9 +108,9 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
             "Settings > 'Target Options' (and the collapsed 'Heal Stack Customization Options')"
         );
         ImGui.NewLine();
-        if (ImGui.Button("> Open the Settings Tab##majorSettings2"))
+        if (ImGui.Button("> 開啟設定分頁##majorSettings2"))
             P.OnOpenConfigUi();
-        if (ImGui.Button("> Enable the Retarget Healing Actions option for me"))
+        if (ImGui.Button("> 替我啟用重新選擇治療技能目標"))
         {
             Service.Configuration.RetargetHealingActionsToStack = true;
             Service.Configuration.Save();
@@ -165,7 +165,7 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
             ImGuiHelpers.GetButtonSize("Close and Do Not Show again").X
             //+ ImGui.GetStyle().ItemSpacing.X * 2
         );
-        if (ImGui.Button("Close and Do Not Show again"))
+        if (ImGui.Button("關閉且不再顯示"))
         {
             Service.Configuration.HideMajorChangesForVersion = Version;
             Service.Configuration.Save();

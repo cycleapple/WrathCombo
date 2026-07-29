@@ -19,37 +19,37 @@ namespace WrathCombo.Window.Tabs
         {
             using (ImRaii.Child("main", new Vector2(0, 0), true))
             {
-                ImGui.Text("This tab allows you to customise your options for Wrath Combo.");
+                ImGui.Text("此分頁可自訂 Wrath Combo 的各項設定。");
 
                 #region UI Options
 
                 ImGuiEx.Spacing(new Vector2(0, 20));
-                ImGuiEx.TextUnderlined("Main UI Options");
+                ImGuiEx.TextUnderlined("主要介面設定");
 
                 #region SubCombos
 
                 var hideChildren = Service.Configuration.HideChildren;
 
-                if (ImGui.Checkbox("Hide SubCombo Options", ref hideChildren))
+                if (ImGui.Checkbox("隱藏子連段選項", ref hideChildren))
                 {
                     Service.Configuration.HideChildren = hideChildren;
                     Service.Configuration.Save();
                 }
 
-                ImGuiComponents.HelpMarker("Hides the sub-options of disabled features.");
+                ImGuiComponents.HelpMarker("隱藏已停用功能的子選項。");
 
                 #endregion
 
                 #region Conflicting
 
                 bool hideConflicting = Service.Configuration.HideConflictedCombos;
-                if (ImGui.Checkbox("Hide Conflicted Combos", ref hideConflicting))
+                if (ImGui.Checkbox("隱藏衝突的連段", ref hideConflicting))
                 {
                     Service.Configuration.HideConflictedCombos = hideConflicting;
                     Service.Configuration.Save();
                 }
 
-                ImGuiComponents.HelpMarker("Hides any combos that conflict with others you have selected.");
+                ImGuiComponents.HelpMarker("隱藏與其他已選功能衝突的連段。");
 
                 #endregion
 
@@ -57,7 +57,7 @@ namespace WrathCombo.Window.Tabs
 
                 bool shortDTRText = Service.Configuration.ShortDTRText;
 
-                if (ImGui.Checkbox("Shorten Server Info Bar Text", ref shortDTRText))
+                if (ImGui.Checkbox("縮短伺服器資訊列文字", ref shortDTRText))
                 {
                     Service.Configuration.ShortDTRText = shortDTRText;
                     Service.Configuration.Save();
@@ -76,29 +76,29 @@ namespace WrathCombo.Window.Tabs
 
                 bool motd = Service.Configuration.HideMessageOfTheDay;
 
-                if (ImGui.Checkbox("Hide Message of the Day", ref motd))
+                if (ImGui.Checkbox("隱藏每日訊息", ref motd))
                 {
                     Service.Configuration.HideMessageOfTheDay = motd;
                     Service.Configuration.Save();
                 }
 
-                ImGuiComponents.HelpMarker("Disables the Message of the Day message in your chat when you login.");
+                ImGuiComponents.HelpMarker("登入時不在聊天視窗顯示每日訊息。");
 
                 #endregion
 
                 #region TargetHelper
 
                 Vector4 colour = Service.Configuration.TargetHighlightColor;
-                if (ImGui.ColorEdit4("Target Highlight Colour", ref colour, ImGuiColorEditFlags.NoInputs | ImGuiColorEditFlags.AlphaPreview | ImGuiColorEditFlags.AlphaBar))
+                if (ImGui.ColorEdit4("目標醒目提示顏色", ref colour, ImGuiColorEditFlags.NoInputs | ImGuiColorEditFlags.AlphaPreview | ImGuiColorEditFlags.AlphaBar))
                 {
                     Service.Configuration.TargetHighlightColor = colour;
                     Service.Configuration.Save();
                 }
 
-                ImGuiComponents.HelpMarker("Draws a box around party members in the vanilla Party List, as targeted by certain features.\nSet Alpha to 0 to hide the box.");
+                ImGuiComponents.HelpMarker("特定功能選擇隊員為目標時，在遊戲原生隊伍列表上繪製外框。\n將透明度設為 0 可隱藏外框。");
 
                 ImGui.SameLine();
-                ImGui.TextColored(ImGuiColors.DalamudGrey, $"(Only used by {CustomComboFunctions.JobIDs.JobIDToName(33)} currently)");
+                ImGui.TextColored(ImGuiColors.DalamudGrey, $"（目前僅供 {CustomComboFunctions.JobIDs.JobIDToName(33)} 使用）");
 
                 #endregion
 
@@ -106,7 +106,7 @@ namespace WrathCombo.Window.Tabs
 
                 #region Open to PvE
 
-                if (ImGui.Checkbox("Open Wrath to the PvE Features tab", ref
+                if (ImGui.Checkbox("開啟 Wrath 時顯示 PvE 功能分頁", ref
                         Service.Configuration.OpenToPvE))
                     Service.Configuration.Save();
 
@@ -117,7 +117,7 @@ namespace WrathCombo.Window.Tabs
 
                 #region Open to PvP
 
-                if (ImGui.Checkbox("Open Wrath to the PvP Features tab in PvP areas", ref
+                if (ImGui.Checkbox("在 PvP 區域開啟 Wrath 時顯示 PvP 功能分頁", ref
                         Service.Configuration.OpenToPvP))
                     Service.Configuration.Save();
 
@@ -125,13 +125,13 @@ namespace WrathCombo.Window.Tabs
                                            "\nSimilar to using the `/wrath pvp` command to open Wrath.");
 
                 ImGui.SameLine();
-                ImGui.TextColored(ImGuiColors.DalamudGrey, $"(Will override the option above)");
+                ImGui.TextColored(ImGuiColors.DalamudGrey, "（此設定會覆蓋上一項）");
 
                 #endregion
 
                 #region Open to Current Job
 
-                if (ImGui.Checkbox("Open PvE Features UI to Current Job on Opening", ref Service.Configuration.OpenToCurrentJob))
+                if (ImGui.Checkbox("開啟 PvE 功能時自動顯示目前職業", ref Service.Configuration.OpenToCurrentJob))
                     Service.Configuration.Save();
 
                 ImGuiComponents.HelpMarker("When you open Wrath's UI, if your last tab was PvE, it will automatically open to the job you are currently playing.");
@@ -140,7 +140,7 @@ namespace WrathCombo.Window.Tabs
 
                 #region Open to Current Job on Switching
 
-                if (ImGui.Checkbox("Open PvE Features UI to Current Job on Switching Jobs", ref Service.Configuration.OpenToCurrentJobOnSwitch))
+                if (ImGui.Checkbox("切換職業時自動顯示目前職業", ref Service.Configuration.OpenToCurrentJobOnSwitch))
                     Service.Configuration.Save();
 
                 ImGuiComponents.HelpMarker("When you switch jobs, it will automatically switch the PvE Features tab to the job you are currently playing.");
@@ -152,11 +152,11 @@ namespace WrathCombo.Window.Tabs
                 #region Rotation Behavior Options
 
                 ImGuiEx.Spacing(new Vector2(0, 20));
-                ImGuiEx.TextUnderlined("Rotation Behavior Options");
+                ImGuiEx.TextUnderlined("循環行為設定");
 
                 #region Spells while Moving
 
-                if (ImGui.Checkbox("Block spells if moving", ref Service.Configuration.BlockSpellOnMove))
+                if (ImGui.Checkbox("移動時阻擋詠唱技能", ref Service.Configuration.BlockSpellOnMove))
                     Service.Configuration.Save();
 
                 ImGuiComponents.HelpMarker("Completely blocks spells from being used if you are moving, by replacing your actions with Savage Blade.\nThis would supersede combo-specific movement options, available for most jobs.\n\nIt is recommended to keep this off, as most combos already handle this more gracefully.\nDefault: Off");
@@ -165,7 +165,7 @@ namespace WrathCombo.Window.Tabs
 
                 #region Action Changing
 
-                if (ImGui.Checkbox("Action Replacing", ref Service.Configuration.ActionChanging))
+                if (ImGui.Checkbox("技能替換", ref Service.Configuration.ActionChanging))
                     Service.Configuration.Save();
 
                 ImGuiComponents.HelpMarker("Controls whether Actions will be Intercepted Replaced with combos from the plugin.\nIf disabled, your manual presses of abilities will no longer be affected by your Wrath settings.\n\nAuto-Rotation will work regardless of the setting.\n\nControlled by the `/wrath combo` command.\n\nIt is REQUIRED to keep this on if you use want to use Wrath without Auto Rotation.\nDefault: On");
@@ -176,7 +176,7 @@ namespace WrathCombo.Window.Tabs
 
                 if (Service.Configuration.ActionChanging) {
                     ImGui.Indent();
-                    if (ImGui.Checkbox("Performance Mode", ref Service.Configuration.PerformanceMode))
+                    if (ImGui.Checkbox("效能模式", ref Service.Configuration.PerformanceMode))
                         Service.Configuration.Save();
 
                     ImGuiComponents.HelpMarker("This mode will disable actions being changed on your hotbar, but will still continue to work in the background as you press your buttons.\n\nIt is recommended to try turing this on if you have performance issues.\nDefault: Off");
@@ -187,14 +187,14 @@ namespace WrathCombo.Window.Tabs
 
                 #region Queued Action Suppression
 
-                if (ImGui.Checkbox($"Queued Action Suppression", ref Service.Configuration.SuppressQueuedActions))
+                if (ImGui.Checkbox("抑制已排隊技能造成的判定", ref Service.Configuration.SuppressQueuedActions))
                     Service.Configuration.Save();
 
                 ImGuiComponents.HelpMarker("While Enabled:\nWhenever you queue an action that is not the same as the button you are pressing, Wrath will disable every other Combo, preventing them from thinking the queued action should trigger them.\n- This prevents combos from conflicting with each other, just because of overlap in actions that combos return and actions that combos replace.\n- This does however cause the Replaced Action for each combo to 'flash' through as actions are queued.\nThat 'flashed' action won't go through, it is only visual.\n\nWhile Disabled:\nCombos will not be disabled when actions are queued from a combo.\n- This prevents your hotbars 'flashing', that is the only benefit.\n- This does however allow Combos to conflict with each other, if one combo returns an action that another combo has as its Replaced Action.\nWe do NOT mark these types of conflicts, and we do NOT try to avoid them as we add new features.\n\nIt is STRONGLY recommended to keep this setting On.\nIf the 'flashing' bothers you it is MUCH more advised to use Performance Mode,\ninstead of turning this off.\nDefault: On");
 
                 ImGui.SameLine();
                 ImGuiEx.Spacing(new Vector2(10, 0));
-                ImGui.TextColored(ImGuiColors.DalamudGrey, "read more:");
+                ImGui.TextColored(ImGuiColors.DalamudGrey, "詳細說明：");
 
                 ImGuiComponents.HelpMarker($"With this enabled, whenever you queue an action that is not the same as the button you are pressing, it will disable every other button's feature from running. This resolves a number of issues where incorrect actions are performed due to how the game processes queued actions, however the visual experience on your hotbars is degraded. This is not recommended to be disabled, however if you feel uncomfortable with hotbar icons changing quickly this is one way to resolve it (or use Performance Mode) but be aware that this may introduce unintended side effects to combos if you have a lot enabled for a job." +
                     $"\n\n" +
@@ -228,9 +228,9 @@ namespace WrathCombo.Window.Tabs
 
                 ImGui.SameLine();
                 var pos = ImGui.GetCursorPosX() + len;
-                ImGui.Text($"milliseconds");
+                ImGui.Text("毫秒");
                 ImGui.SameLine(pos);
-                ImGui.Text($"   -   Action Updater Throttle");
+                ImGui.Text("   -   技能更新節流");
 
 
                 ImGuiComponents.HelpMarker(
@@ -253,11 +253,11 @@ namespace WrathCombo.Window.Tabs
                     Service.Configuration.Save();
 
                 ImGui.SameLine();
-                ImGui.Text("seconds");
+                ImGui.Text("秒");
 
                 ImGui.SameLine(pos);
 
-                ImGui.Text($"   -   Movement Check Delay");
+                ImGui.Text("   -   移動判定延遲");
 
                 ImGuiComponents.HelpMarker("Many features check if you are moving to decide actions, this will allow you to set a delay on how long you need to be moving before it recognizes you as moving.\nThis allows you to not have to worry about small movements affecting your rotation, primarily for casters.\n\nIt is recommended to keep this value between 0 and 1 seconds.\nDefault: 0.0");
 
@@ -269,11 +269,11 @@ namespace WrathCombo.Window.Tabs
                     Service.Configuration.Save();
 
                 ImGui.SameLine();
-                ImGui.Text("seconds");
+                ImGui.Text("秒");
 
                 ImGui.SameLine(pos);
 
-                ImGui.Text($"   -   Opener Failure Timeout");
+                ImGui.Text("   -   起手式失敗逾時");
 
                 ImGuiComponents.HelpMarker("During an opener if this amount of time has passed since your last action, it will fail the opener and resume with non-opener functionality.\n\nIt is recommended to keep this value below 6.\nDefault: 4.0");
 
@@ -289,10 +289,10 @@ namespace WrathCombo.Window.Tabs
                 }
 
                 ImGui.SameLine();
-                ImGui.Text($"yalms");
+                ImGui.Text("雅姆");
                 ImGui.SameLine(pos);
 
-                ImGui.Text($"   -   Melee Distance Offset");
+                ImGui.Text("   -   近戰距離偏移");
 
                 ImGuiComponents.HelpMarker("Offset of melee check distance.\nFor those who don't want to immediately use their ranged attack if the boss walks slightly out of range.\n\nFor example, a value of -0.5 would make you have to be 0.5 yalms closer to the target,\nor a value of 2 would disable triggering of ranged features until you are 2 yalms further from the hitbox.\n\nIt is recommended to keep this value at 0.\nDefault: 0.0");
                 #endregion
@@ -310,9 +310,9 @@ namespace WrathCombo.Window.Tabs
                     Service.Configuration.Save();
                 }
                 ImGui.SameLine();
-                ImGui.Text($"%% of cast");
+                ImGui.Text("詠唱進度 %");
                 ImGui.SameLine( pos);
-                ImGui.Text($"   -   Interrupt Delay");
+                ImGui.Text("   -   打斷延遲");
 
                 ImGuiComponents.HelpMarker("The percentage of a total cast time to wait before interrupting.\nApplies to all interrupts, in every job's combos.\n\nIt is recommend to keep this value below 50%.\nDefault: 0%");
 
@@ -325,11 +325,11 @@ namespace WrathCombo.Window.Tabs
                     Service.Configuration.Save();
 
                 ImGui.SameLine();
-                ImGui.Text("oGCDs");
+                ImGui.Text("能力技");
 
                 ImGui.SameLine(pos);
 
-                ImGui.Text($"   -   Maximum number of Weaves");
+                ImGui.Text("   -   最大插入能力技數");
 
                 ImGuiComponents.HelpMarker("This controls how many oGCDs are allowed between GCDs.\nThe sort of 'default' for the game is double weaving, but triple weaving is completely possible to do with low enough latency (of every kind); but if you struggle with latency of some sort, single weaving may even be a good answer for you.\nTriple weaving is already done in a manner where we try to avoid clipping GCDs, and as such doesn't happen particularly often even if you do have good latency, so it is a safe option as far as parses/etc goes.\n\nDefault: 2");
 
@@ -340,7 +340,7 @@ namespace WrathCombo.Window.Tabs
                 #region Targeting Options
 
                 ImGuiEx.Spacing(new Vector2(0, 20));
-                ImGuiEx.TextUnderlined("Targeting Options");
+                ImGuiEx.TextUnderlined("目標設定");
 
                 var useCusHealStack = Service.Configuration.UseCustomHealStack;
 
@@ -348,7 +348,7 @@ namespace WrathCombo.Window.Tabs
 
                 bool retargetHealingActions =
                     Service.Configuration.RetargetHealingActionsToStack;
-                if (ImGui.Checkbox("Retarget (Single Target) Healing Actions", ref retargetHealingActions))
+                if (ImGui.Checkbox("重新選擇單體治療技能的目標", ref retargetHealingActions))
                 {
                     Service.Configuration.RetargetHealingActionsToStack =
                         retargetHealingActions;
@@ -362,7 +362,7 @@ namespace WrathCombo.Window.Tabs
                 bool addNpcs = 
                     Service.Configuration.AddOutOfPartyNPCsToRetargeting;
 
-                if (ImGui.Checkbox("Add Out of Party NPCs to Retargeting", ref addNpcs))
+                if (ImGui.Checkbox("重新選擇目標時包含隊伍外 NPC", ref addNpcs))
                 {
                     Service.Configuration.AddOutOfPartyNPCsToRetargeting = addNpcs;
                     Service.Configuration.Save();
@@ -380,7 +380,7 @@ namespace WrathCombo.Window.Tabs
 
                 #region Current Heal Stack
 
-                ImGui.TextUnformatted("Current Heal Stack:");
+                ImGui.TextUnformatted("目前治療目標優先序：");
 
                 ImGuiComponents.HelpMarker(
                     "This is the order in which Wrath will try to select a healing target.\n\n" +
@@ -446,7 +446,7 @@ namespace WrathCombo.Window.Tabs
 
                     bool useUIMouseoverOverridesInDefaultHealStack =
                         Service.Configuration.UseUIMouseoverOverridesInDefaultHealStack;
-                    if (ImGui.Checkbox("Add UI MouseOver to the Default Healing Stack", ref useUIMouseoverOverridesInDefaultHealStack))
+                    if (ImGui.Checkbox("將介面滑鼠指向目標加入預設治療優先序", ref useUIMouseoverOverridesInDefaultHealStack))
                     {
                         Service.Configuration.UseUIMouseoverOverridesInDefaultHealStack =
                             useUIMouseoverOverridesInDefaultHealStack;
@@ -465,7 +465,7 @@ namespace WrathCombo.Window.Tabs
 
                     bool useFieldMouseoverOverridesInDefaultHealStack =
                         Service.Configuration.UseFieldMouseoverOverridesInDefaultHealStack;
-                    if (ImGui.Checkbox("Add Field MouseOver to the Default Healing Stack", ref useFieldMouseoverOverridesInDefaultHealStack))
+                    if (ImGui.Checkbox("將場景滑鼠指向目標加入預設治療優先序", ref useFieldMouseoverOverridesInDefaultHealStack))
                     {
                         Service.Configuration.UseFieldMouseoverOverridesInDefaultHealStack =
                             useFieldMouseoverOverridesInDefaultHealStack;
@@ -484,7 +484,7 @@ namespace WrathCombo.Window.Tabs
 
                     bool useFocusTargetOverrideInDefaultHealStack =
                         Service.Configuration.UseFocusTargetOverrideInDefaultHealStack;
-                    if (ImGui.Checkbox("Add Focus Target to the Default Healing Stack", ref useFocusTargetOverrideInDefaultHealStack))
+                    if (ImGui.Checkbox("將焦點目標加入預設治療優先序", ref useFocusTargetOverrideInDefaultHealStack))
                     {
                         Service.Configuration.UseFocusTargetOverrideInDefaultHealStack =
                             useFocusTargetOverrideInDefaultHealStack;
@@ -503,7 +503,7 @@ namespace WrathCombo.Window.Tabs
 
                     bool useLowestHPOverrideInDefaultHealStack =
                         Service.Configuration.UseLowestHPOverrideInDefaultHealStack;
-                    if (ImGui.Checkbox("Add Lowest HP% Ally to the Default Healing Stack", ref useLowestHPOverrideInDefaultHealStack))
+                    if (ImGui.Checkbox("將 HP% 最低的隊友加入預設治療優先序", ref useLowestHPOverrideInDefaultHealStack))
                     {
                         Service.Configuration.UseLowestHPOverrideInDefaultHealStack =
                             useLowestHPOverrideInDefaultHealStack;
@@ -525,13 +525,13 @@ namespace WrathCombo.Window.Tabs
                     #endregion
 
                     ImGuiEx.Spacing(new Vector2(5, 5));
-                    ImGui.TextUnformatted("Or");
+                    ImGui.TextUnformatted("或");
                     ImGuiEx.Spacing(new Vector2(0, 5));
 
                     #region Use Custom Heal Stack
 
                     bool useCustomHealStack = Service.Configuration.UseCustomHealStack;
-                    if (ImGui.Checkbox("Use a Custom Heal Stack Instead", ref useCustomHealStack))
+                    if (ImGui.Checkbox("改用自訂治療目標優先序", ref useCustomHealStack))
                     {
                         Service.Configuration.UseCustomHealStack = useCustomHealStack;
                         Service.Configuration.Save();
@@ -584,7 +584,7 @@ namespace WrathCombo.Window.Tabs
 
                 #region Raise Stack Manager
 
-                ImGui.TextUnformatted("Current Raise Stack:");
+                ImGui.TextUnformatted("目前復活目標優先序：");
 
                 ImGuiComponents.HelpMarker(
                     "This is the order in which Wrath will try to select a " +
@@ -607,7 +607,7 @@ namespace WrathCombo.Window.Tabs
                     "Default: Any Healer > Any Tank > Any Raiser > Any Dead Party Member",
                     true
                 );
-                ImGui.TextDisabled("(all targets are checked for rezz-ability)");
+                ImGui.TextDisabled("（所有目標皆會檢查是否可復活）");
                 ImGui.Unindent();
 
                 #endregion
@@ -617,13 +617,13 @@ namespace WrathCombo.Window.Tabs
                 #region Troubleshooting Options
 
                 ImGuiEx.Spacing(new Vector2(0, 20));
-                ImGuiEx.TextUnderlined("Troubleshooting / Analysis Options");
+                ImGuiEx.TextUnderlined("疑難排解／分析設定");
 
                 #region Combat Log
 
                 bool showCombatLog = Service.Configuration.EnabledOutputLog;
 
-                if (ImGui.Checkbox("Output Log to Chat", ref showCombatLog))
+                if (ImGui.Checkbox("將紀錄輸出至聊天視窗", ref showCombatLog))
                 {
                     Service.Configuration.EnabledOutputLog = showCombatLog;
                     Service.Configuration.Save();
@@ -634,7 +634,7 @@ namespace WrathCombo.Window.Tabs
 
                 #region Opener Log
 
-                if (ImGui.Checkbox($"Output opener status to chat", ref Service.Configuration.OutputOpenerLogs))
+                if (ImGui.Checkbox("將起手式狀態輸出至聊天視窗", ref Service.Configuration.OutputOpenerLogs))
                     Service.Configuration.Save();
 
                 ImGuiComponents.HelpMarker("Every time your class's opener is ready, fails, or finishes as expected, it will print to the chat.");
@@ -642,7 +642,7 @@ namespace WrathCombo.Window.Tabs
 
                 #region Debug File
 
-                if (ImGui.Button("Create Debug File"))
+                if (ImGui.Button("建立偵錯檔案"))
                 {
                     if (Player.Available)
                         DebugFile.MakeDebugFile();

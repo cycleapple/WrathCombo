@@ -174,26 +174,26 @@ namespace WrathCombo.Window
             ImGui.Separator();
 
             ImGui.Spacing();
-            if (ImGui.Selectable("PvE Features", OpenWindow == OpenWindow.PvE))
+            if (ImGui.Selectable("PvE 功能", OpenWindow == OpenWindow.PvE))
                 OpenWindow = OpenWindow.PvE;
 
             ImGui.Spacing();
-            if (ImGui.Selectable("PvP Features", OpenWindow == OpenWindow.PvP))
+            if (ImGui.Selectable("PvP 功能", OpenWindow == OpenWindow.PvP))
                 OpenWindow = OpenWindow.PvP;
 
             ImGui.Spacing();
-            if (ImGui.Selectable("Auto-Rotation", OpenWindow == OpenWindow.AutoRotation))
+            if (ImGui.Selectable("自動循環", OpenWindow == OpenWindow.AutoRotation))
                 OpenWindow = OpenWindow.AutoRotation;
 
             ImGui.Spacing();
             ImGui.Spacing();
 
             ImGui.Spacing();
-            if (ImGui.Selectable("Settings", OpenWindow == OpenWindow.Settings))
+            if (ImGui.Selectable("設定", OpenWindow == OpenWindow.Settings))
                 OpenWindow = OpenWindow.Settings;
 
             ImGui.Spacing();
-            if (ImGui.Selectable("About", OpenWindow == OpenWindow.About))
+            if (ImGui.Selectable("關於", OpenWindow == OpenWindow.About))
                 OpenWindow = OpenWindow.About;
 
 #if DEBUG
@@ -273,12 +273,12 @@ namespace WrathCombo.Window
 
             // Set up how the button should display
             var icon = FontAwesomeIcon.CaretLeft;
-            var hoverText = "Collapse Sidebar";
+            var hoverText = "收合側邊欄";
             ImGui.SetWindowFontScale(1.5f.Scale());
             if (collapsed)
             {
                 icon = FontAwesomeIcon.CaretRight;
-                hoverText = "Expand Sidebar";
+                hoverText = "展開側邊欄";
             }
 
             // Draw the button

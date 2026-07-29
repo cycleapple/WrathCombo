@@ -5,11 +5,11 @@
     <PropertyGroup>
         <Authors>Team Wrath</Authors>
         <Company>-</Company>
-        <Version>1.0.1.18</Version>
+        <Version>1.0.1.19</Version>
         <!-- This is the version that will be used when pushing to the repo.-->
-        <Description>XIVCombo for very lazy players</Description>
+        <Description>將技能連段整合至單一按鍵的便利插件</Description>
         <Copyright>Copyleft attick 2021 thanks attick UwU</Copyright>
-        <PackageProjectUrl>https://github.com/PunishXIV/WrathCombo</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/cycleapple/WrathCombo/tree/api13-tw</PackageProjectUrl>
         <PackageId>WrathCombo</PackageId>
         <Product>WrathCombo</Product>
     </PropertyGroup>

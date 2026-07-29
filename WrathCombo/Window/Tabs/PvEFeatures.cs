@@ -26,7 +26,7 @@ namespace WrathCombo.Window.Tabs
             //#if !DEBUG
             if (ActionReplacer.ClassLocked())
             {
-                ImGui.TextWrapped("Equip your job stone to re-unlock features.");
+                ImGui.TextWrapped("請裝備職業水晶以重新解鎖功能。");
                 return;
             }
             //#endif
@@ -43,7 +43,7 @@ namespace WrathCombo.Window.Tabs
                     ImGui.SameLine(indentwidth);
                     ImGuiEx.LineCentered(() =>
                     {
-                        ImGuiEx.TextUnderlined("Select a job from below to enable and configure features for it.");
+                        ImGuiEx.TextUnderlined("請從下方選擇職業，以啟用並設定其功能。");
                     });
 
                     ColCount = Math.Max(1, (int)(ImGui.GetContentRegionAvail().X / 200f.Scale()));
@@ -85,7 +85,7 @@ namespace WrathCombo.Window.Tabs
                                 ImGui.SameLine(indentwidth2);
 
                                 ImGuiEx.Spacing(new Vector2(0, verticalCenteringPadding));
-                                ImGui.Text($"{header} {(disabled ? "(Disabled due to update)" : "")}");
+                                ImGui.Text($"{header} {(disabled ? "（因版本更新而停用）" : "")}");
 
                                 if (!string.IsNullOrEmpty(abbreviation) &&
                                     P.UIHelper.JobControlled(id) is not null)
@@ -107,7 +107,7 @@ namespace WrathCombo.Window.Tabs
 
                     using (ImRaii.Child("HeadingTab", new Vector2(ImGui.GetContentRegionAvail().X, iconMaxSize)))
                     {
-                        if (ImGui.Button("Back", new Vector2(0, 24f.Scale())))
+                        if (ImGui.Button("返回", new Vector2(0, 24f.Scale())))
                         {
                             OpenJob = "";
                             return;
@@ -149,7 +149,7 @@ namespace WrathCombo.Window.Tabs
                         {
                             if (ImGui.BeginTabBar($"subTab{OpenJob}", ImGuiTabBarFlags.Reorderable | ImGuiTabBarFlags.AutoSelectNewTabs))
                             {
-                                if (ImGui.BeginTabItem("Normal"))
+                                if (ImGui.BeginTabItem("一般"))
                                 {
                                     DrawHeadingContents(OpenJob);
                                     ImGui.EndTabItem();
@@ -157,7 +157,7 @@ namespace WrathCombo.Window.Tabs
 
                                 if (groupedPresets[OpenJob].Any(x => PresetStorage.IsVariant(x.Preset)))
                                 {
-                                    if (ImGui.BeginTabItem("Variant Dungeons"))
+                                    if (ImGui.BeginTabItem("多變迷宮"))
                                     {
                                         DrawVariantContents(OpenJob);
                                         ImGui.EndTabItem();
@@ -166,7 +166,7 @@ namespace WrathCombo.Window.Tabs
 
                                 if (groupedPresets[OpenJob].Any(x => PresetStorage.IsBozja(x.Preset)))
                                 {
-                                    if (ImGui.BeginTabItem("Bozja"))
+                                    if (ImGui.BeginTabItem("博茲雅"))
                                     {
                                         DrawBozjaContents(OpenJob);
                                         ImGui.EndTabItem();
@@ -175,7 +175,7 @@ namespace WrathCombo.Window.Tabs
 
                                 if (groupedPresets[OpenJob].Any(x => PresetStorage.IsEureka(x.Preset)))
                                 {
-                                    if (ImGui.BeginTabItem("Eureka"))
+                                    if (ImGui.BeginTabItem("禁地優雷卡"))
                                     {
                                         ImGui.EndTabItem();
                                     }

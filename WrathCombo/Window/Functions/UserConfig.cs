@@ -137,7 +137,7 @@ namespace WrathCombo.Window.Functions
             using var contextMenu = ImRaii.Popup($"##ResetConfig{config}{occurrence}");
             if (!contextMenu) return;
 
-            if (ImGui.MenuItem("Reset to Default"))
+            if (ImGui.MenuItem("重設為預設值"))
             {
                 ResetToDefault(config);
             }
@@ -929,7 +929,7 @@ namespace WrathCombo.Window.Functions
             if (ImGui.IsItemHovered())
             {
                 ImGui.BeginTooltip();
-                ImGui.Text("Smaller Number = Higher Priority");
+                ImGui.Text("數字越小，優先度越高");
                 ImGui.EndTooltip();
             }
             ImGui.Unindent();
@@ -1015,7 +1015,7 @@ namespace WrathCombo.Window.Functions
             #region Adding to the Stack
 
             ImGuiEx.Spacing(new Vector2(5f.Scale(), 0));
-            ImGui.Text("Add to the Stack:");
+            ImGui.Text("加入優先序：");
             ImGui.SameLine();
             DrawItemAdding(stackName, targetsToRemoveIfStringContains,
                 ref customStackSetting,

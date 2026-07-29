@@ -267,14 +267,14 @@ namespace WrathCombo.Window.Functions
                 if (blueAttr.Actions.Count > 0)
                 {
                     ImGui.PushStyleColor(ImGuiCol.Text, blueAttr.NoneSet ? ImGuiColors.DPSRed : ImGuiColors.DalamudOrange);
-                    ImGui.Text($"{(blueAttr.NoneSet ? "No Required Spells Active:" : "Missing active spells:")} {string.Join(", ", blueAttr.Actions.Select(x => ActionWatching.GetBLUIndex(x) + GetActionName(x)))}");
+                    ImGui.Text($"{(blueAttr.NoneSet ? "未啟用任何必要技能：" : "缺少已啟用技能：")} {string.Join(", ", blueAttr.Actions.Select(x => ActionWatching.GetBLUIndex(x) + GetActionName(x)))}");
                     ImGui.PopStyleColor();
                 }
 
                 else
                 {
                     ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.HealerGreen);
-                    ImGui.Text("All required spells active!");
+                    ImGui.Text("所有必要技能皆已啟用！");
                     ImGui.PopStyleColor();
                 }
             }
@@ -282,7 +282,7 @@ namespace WrathCombo.Window.Functions
             if (variantParents is not null)
             {
                 ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.HealerGreen);
-                ImGui.TextWrapped($"Part of normal combo{(variantParents.ParentPresets.Length > 1 ? "s" : "")}:");
+                ImGui.TextWrapped("隸屬的一般連段：");
                 StringBuilder builder = new();
                 foreach (var par in variantParents.ParentPresets)
                 {
@@ -308,7 +308,7 @@ namespace WrathCombo.Window.Functions
             if (bozjaParents is not null)
             {
                 ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.HealerGreen);
-                ImGui.TextWrapped($"Part of normal combo{(bozjaParents.ParentPresets.Length > 1 ? "s" : "")}:");
+                ImGui.TextWrapped("隸屬的一般連段：");
                 StringBuilder builder = new();
                 foreach (var par in bozjaParents.ParentPresets)
                 {
@@ -333,7 +333,7 @@ namespace WrathCombo.Window.Functions
             if (eurekaParents is not null)
             {
                 ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.HealerGreen);
-                ImGui.TextWrapped($"Part of normal combo{(variantParents.ParentPresets.Length > 1 ? "s" : "")}:");
+                ImGui.TextWrapped("隸屬的一般連段：");
                 StringBuilder builder = new();
                 foreach (var par in eurekaParents.ParentPresets)
                 {

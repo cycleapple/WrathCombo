@@ -175,8 +175,13 @@ public partial class Helper(ref Leasing leasing)
         if (comboStates is null || comboStates.Count == 0)
             return null;
 
+        // Some jobs do not expose both target modes. Treat an absent mode as
+        // unconfigured instead of letting an IPC status query throw.
+        if (!comboStates.TryGetValue(mode, out var modeStates))
+            return null;
+
         // Try to get the Simple Mode settings
-        comboStates[mode]
+        modeStates
             .TryGetValue(ComboSimplicityLevelKeys.Simple, out var simpleResults);
         var simpleHigher = simpleResults?.FirstOrDefault();
         var simple = simpleHigher?.Value;
@@ -189,8 +194,9 @@ public partial class Helper(ref Leasing leasing)
             Enum.Parse(typeof(CustomComboPreset), simpleHigher.Value.Key, true);
         if (simpleComboPreset is not null)
         {
-            simple[ComboStateKeys.AutoMode] =
-                P.IPCSearch.AutoActions[(CustomComboPreset)simpleComboPreset];
+            simple[ComboStateKeys.AutoMode] = P.IPCSearch.AutoActions.TryGetValue(
+                (CustomComboPreset)simpleComboPreset, out var simpleAutoMode) &&
+                simpleAutoMode;
             simple[ComboStateKeys.Enabled] =
                 P.IPCSearch.EnabledActions.Contains(
                     (CustomComboPreset)simpleComboPreset);
@@ -199,15 +205,25 @@ public partial class Helper(ref Leasing leasing)
         #endregion
 
         // Get the Advanced Mode settings
-        var (advancedKey, advancedValue) =
-            comboStates[mode][ComboSimplicityLevelKeys.Advanced].First();
+        if (!modeStates.TryGetValue(ComboSimplicityLevelKeys.Advanced,
+                out var advancedResults) || advancedResults.Count == 0)
+        {
+            var simpleEnabled = simple is not null &&
+                simple.TryGetValue(enabledStateToCheck, out var enabled) && enabled;
+            return previousMatch != ComboSimplicityLevelKeys.Advanced && simpleEnabled
+                ? ComboSimplicityLevelKeys.Simple
+                : null;
+        }
+
+        var (advancedKey, advancedValue) = advancedResults.First();
 
         #region Override the Values with any IPC-control
 
         var advancedComboPreset = (CustomComboPreset)
             Enum.Parse(typeof(CustomComboPreset), advancedKey, true);
         advancedValue[ComboStateKeys.AutoMode] =
-            P.IPCSearch.AutoActions[advancedComboPreset];
+            P.IPCSearch.AutoActions.TryGetValue(advancedComboPreset,
+                out var advancedAutoMode) && advancedAutoMode;
         advancedValue[ComboStateKeys.Enabled] =
             P.IPCSearch.EnabledActions.Contains(advancedComboPreset);
 
@@ -217,17 +233,23 @@ public partial class Helper(ref Leasing leasing)
         if (previousMatch is not null)
         {
             if (previousMatch == ComboSimplicityLevelKeys.Simple &&
-                simple is not null && simple[enabledStateToCheck])
+                simple is not null &&
+                simple.TryGetValue(enabledStateToCheck, out var simpleEnabled) &&
+                simpleEnabled)
                 return ComboSimplicityLevelKeys.Simple;
-            return advancedValue[enabledStateToCheck]
+            return advancedValue.TryGetValue(enabledStateToCheck,
+                       out var advancedEnabled) && advancedEnabled
                 ? ComboSimplicityLevelKeys.Advanced
                 : null;
         }
 
         // Check for either Simple or Advanced being ready
-        return simple is not null && simple[enabledStateToCheck] ?
+        return simple is not null &&
+               simple.TryGetValue(enabledStateToCheck, out var simpleState) &&
+               simpleState ?
             ComboSimplicityLevelKeys.Simple :
-            advancedValue[enabledStateToCheck] ? ComboSimplicityLevelKeys.Advanced :
+            advancedValue.TryGetValue(enabledStateToCheck, out var advancedState) &&
+            advancedState ? ComboSimplicityLevelKeys.Advanced :
                 null;
     }
 
