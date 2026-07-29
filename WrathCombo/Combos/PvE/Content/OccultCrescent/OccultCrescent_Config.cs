@@ -109,15 +109,15 @@ internal partial class OccultCrescent
 
                 case CustomComboPreset.Phantom_Chemist_OccultElixir:
                     ImGui.Indent();
-                    ImGuiEx.TextWrapped(ImGuiColors.DalamudRed, "This is a VERY costly Feature!");
+                    ImGuiEx.TextWrapped(ImGuiColors.DalamudRed, "此功能的消耗非常高！");
                     ImGui.Unindent();
                     UserConfig.DrawSliderInt(1, 100, Phantom_Chemist_OccultElixir_HP,
                         "Avg Party HP to be \nless than or equal to:", 200);
                     UserConfig.DrawAdditionalBoolChoice(Phantom_Chemist_OccultElixir_RequireParty,
                         "Require at least 1 party member", "");
                     ImGui.Indent();
-                    ImGuiEx.TextWrapped(ImGuiColors.DalamudYellow, "Not advisable in most situations!");
-                    ImGuiEx.TextWrapped(ImGuiColors.DalamudYellow, "The slider value should be rather low, if you do use it!");
+                    ImGuiEx.TextWrapped(ImGuiColors.DalamudYellow, "大多數情況下不建議使用！");
+                    ImGuiEx.TextWrapped(ImGuiColors.DalamudYellow, "若確實要使用，滑桿數值應設定得較低！");
                     ImGui.Unindent();
                     break;
 

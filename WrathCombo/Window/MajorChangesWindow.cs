@@ -26,7 +26,7 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
     /// <summary>
     ///     Create a major changes window, with some settings about it.
     /// </summary>
-    public MajorChangesWindow() : base("Wrath Combo | New Changes")
+    public MajorChangesWindow() : base("Wrath Combo｜重大變更###Wrath Combo | New Changes")
     {
         PluginLog.Debug(
             "MajorChangesWindow: " +
@@ -48,19 +48,19 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
     /// </summary>
     public override void Draw()
     {
-        PadOutMinimumWidthFor("Wrath Combo | New Changes");
+        PadOutMinimumWidthFor("Wrath Combo｜重大變更");
 
         #region MouseOver Options moved
 
-        ImGuiEx.TextUnderlined("Healer MouseOver Options are Moved!");
+        ImGuiEx.TextUnderlined("治療職業的滑鼠指向選項已移動！");
         if (WasUsingOldMouseOverConfigs)
             ImGuiEx.Text(ImGuiColors.DalamudYellow,
-                "You were using one of these options! Please Read!");
+                "您原先正在使用其中一項選項，請務必閱讀！");
         ImGuiEx.Text(
-            "The option for each healer's healing combos to check MouseOver are gone,\n" +
-            "and now are replaced with a global mouseover option (and some new ones).\n\n" +
-            "You can find this new setting under:\n" +
-            "Settings > 'Target Options' > 'Heal Stack Customization Options'"
+            "各治療職業連段中的滑鼠指向目標檢查選項已移除，\n" +
+            "改由全域滑鼠指向選項及數個新選項取代。\n\n" +
+            "新設定位於：\n" +
+            "設定 >「目標設定」>「治療目標優先序自訂選項」"
         );
         ImGui.NewLine();
         if (ImGui.Button("> 開啟設定分頁##majorSettings1"))
@@ -75,7 +75,7 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
             ImGui.SameLine();
             FontAwesome.Print(ImGuiColors.HealerGreen, FontAwesomeIcon.Check);
             ImGui.SameLine();
-            ImGuiEx.Text($"Enabled");
+            ImGuiEx.Text("已啟用");
         }
 
         #endregion
@@ -86,26 +86,23 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
 
         #region Retargeting
 
-        ImGuiEx.TextUnderlined("New Feature: Action Retargeting!");
+        ImGuiEx.TextUnderlined("新功能：技能目標重新選擇！");
         ImGuiEx.Text(
-            "Action Retargeting allows us to pick actions' targets for you, based on\n" +
-            "The Balance's recommendations and your options, without you having to\n" +
-            "setup Redirect or Reaction.");
+            "技能目標重新選擇會依照 The Balance 的建議與您的設定，\n" +
+            "自動為技能選擇目標，不再需要另外設定 Redirect 或 ReAction。");
         ImGuiComponents.HelpMarker(
-            "Previously there were a few features (like AST's Earthly Star) that\n" +
-            "required Redirect or Reaction to work, and Single-Target Healing combos\n" +
-            "were checking HP of your MouseOver (optionally) > Soft Target > Hard Target,\n" +
-            "which may not have lined up with your targeting, and used the 'wrong' heals.\n\n" +
-            "Action Retargeting addresses that!"
+            "過去部分功能（例如占星術士的地星）必須搭配 Redirect 或 ReAction，\n" +
+            "單體治療連段也會依序檢查滑鼠指向（可選）> 軟目標 > 硬目標的 HP，\n" +
+            "可能與您實際選擇的目標不一致而使用錯誤的治療技能。\n\n" +
+            "技能目標重新選擇可改善這個問題！"
         );
         ImGuiEx.Text(
-            "Additionally, we have added the ability to control the 'Stack' of targets\n" +
-            "that Healing combos will use to check HP and choose to cast different heals,\n" +
-            "and an option to also Retarget all Single-Target Healing actions to that same Stack.\n" +
-            "(This option, 'Retarget Healing Actions', is highly recommended!)");
+            "此外，現在可以自訂治療連段用來檢查 HP 並選擇治療技能的目標優先序，\n" +
+            "也能讓所有單體治療技能依照同一優先序重新選擇目標。\n" +
+            "（強烈建議啟用「重新選擇治療技能目標」！）");
         ImGuiEx.Text(
-            "You can find these new settings under:\n" +
-            "Settings > 'Target Options' (and the collapsed 'Heal Stack Customization Options')"
+            "新設定位於：\n" +
+            "設定 >「目標設定」（以及收合的「治療目標優先序自訂選項」）"
         );
         ImGui.NewLine();
         if (ImGui.Button("> 開啟設定分頁##majorSettings2"))
@@ -120,13 +117,13 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
             ImGui.SameLine();
             FontAwesome.Print(ImGuiColors.HealerGreen, FontAwesomeIcon.Check);
             ImGui.SameLine();
-            ImGuiEx.Text($"Enabled");
+            ImGuiEx.Text("已啟用");
         }
         ImGui.NewLine();
         ImGuiEx.Text(
-            "You will find new symbols indicating if a Feature's actions are Retargeted:"
+            "功能旁會以新圖示表示其中的技能是否會重新選擇目標："
         );
-        ImGuiEx.Text("Depending on settings, MAY be Retargeted:");
+        ImGuiEx.Text("依設定可能重新選擇目標：");
         ImGui.SameLine();
         using (ImRaii.PushFont(UiBuilder.IconFont))
         {
@@ -134,7 +131,7 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
                 ImGui.Text(FontAwesomeIcon.Random.ToIconString());
         }
         ImGui.SameLine();
-        ImGuiEx.Text("WILL always be Retargeted:");
+        ImGuiEx.Text("一定會重新選擇目標：");
         ImGui.SameLine();
         using (ImRaii.PushFont(UiBuilder.IconFont))
         {
@@ -143,17 +140,15 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
         }
         ImGui.NewLine();
         ImGuiEx.Text(ImGuiColors.DalamudYellow,
-            "If you previously had Redirect/Reaction configured for actions that are\n" +
-            "now Retargeted, or had Reaction's/Bossmod's Instant Ground Target options,\n" +
-            "you may likely want to disable those options.");
+            "若您先前已在 Redirect／ReAction 中設定目前會重新選擇目標的技能，\n" +
+            "或啟用了 ReAction／Bossmod 的立即地面選取功能，建議停用這些選項。");
         ImGuiEx.Text(
-            "That incudes AST Cards, DNC Partner, and (if enabled:)\n" +
-            "Single-Target Healing Actions");
+            "其中包括占星卡牌、舞伴，以及（若啟用）\n" +
+            "單體治療技能。");
         ImGuiComponents.HelpMarker(
-            "Healing actions is up to preference whether you choose to enable that\n" +
-            "in settings (highly recommended), but Dance Partner and Cards are now smarter\n" +
-            "than simple retargeting of actions (following The Balance's priorities,\n" +
-            "checking for damage downs, etc).");
+            "是否為治療技能啟用此功能可依個人偏好決定（強烈建議啟用）；\n" +
+            "舞伴與卡牌的處理則比單純重新選擇目標更完整，會遵循 The Balance\n" +
+            "的優先序並檢查傷害降低等狀態。");
 
         #endregion
 
@@ -162,7 +157,7 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
         ImGuiEx.Spacing(new System.Numerics.Vector2(0, 20));
         ImGui.Separator();
         ImGuiHelpers.CenterCursorFor(
-            ImGuiHelpers.GetButtonSize("Close and Do Not Show again").X
+            ImGuiHelpers.GetButtonSize("關閉且不再顯示").X
             //+ ImGui.GetStyle().ItemSpacing.X * 2
         );
         if (ImGui.Button("關閉且不再顯示"))

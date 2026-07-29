@@ -89,7 +89,7 @@ internal partial class BLM
                     ImGui.Indent();
 
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        "Select what kind of enemies the HP check should be applied to:");
+                        "選擇要套用 HP 檢查的敵人類型：");
 
                     DrawHorizontalRadioButton(BLM_ST_Thunder_SubOption,
                         "Non-Bosses", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);

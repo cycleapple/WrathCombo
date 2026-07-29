@@ -43,7 +43,7 @@ internal partial class SCH
 
                     ImGui.Indent();
 
-                    ImGui.TextColored(ImGuiColors.DalamudYellow, "Select what kind of enemies the HP check should be applied to:");
+                    ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
 
                     DrawHorizontalRadioButton(SCH_DPS_BioSubOption,
                         "Non-Bosses", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
@@ -63,7 +63,7 @@ internal partial class SCH
                     
                     ImGui.Indent();
                     
-                    ImGui.TextColored(ImGuiColors.DalamudYellow, "Select what kind of enemies the HP check should be applied to:");
+                    ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
                     
                     DrawHorizontalRadioButton(SCH_ST_DPS_ChainStratagemSubOption,
                         "Non-Bosses", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
@@ -94,7 +94,7 @@ internal partial class SCH
                     
                     ImGui.Indent();
                     
-                    ImGui.TextColored(ImGuiColors.DalamudYellow, "Select what kind of enemies the HP check should be applied to:");
+                    ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
                     
                     DrawHorizontalRadioButton(SCH_AoE_DPS_ChainStratagemSubOption,
                         "Non-Bosses", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);

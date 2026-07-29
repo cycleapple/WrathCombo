@@ -512,13 +512,13 @@ namespace WrathCombo.Window.Tabs
 
                     if (useCusHealStack) ImGui.EndDisabled();
 
-                    ImGuiComponents.HelpMarker("This will add a nearby party member with the lowest HP% to bottom of the Default Heal Stack, overriding only yourself.\n\nTHIS SHOULD BE USED WITH THE 'RETARGET HEALING ACTIONS' SETTING!\n\nDefault: Off");
+                    ImGuiComponents.HelpMarker("將附近 HP% 最低的隊員加入預設治療目標優先序底端，且只會取代自身。\n\n此功能應搭配「重新選擇治療技能目標」設定使用！\n\n預設：關閉");
 
                     if (useCusHealStack) ImGui.BeginDisabled();
                     if (useLowestHPOverrideInDefaultHealStack)
                     {
                         ImGuiEx.Spacing(new Vector2(30, 0));
-                        ImGuiEx.Text(ImGuiColors.DalamudYellow, "This should be used with the 'Retarget Healing Actions' setting above!");
+                        ImGuiEx.Text(ImGuiColors.DalamudYellow, "此功能應搭配上方的「重新選擇治療技能目標」設定使用！");
                     }
                     if (useCusHealStack) ImGui.EndDisabled();
 

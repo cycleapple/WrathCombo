@@ -69,7 +69,7 @@ internal partial class DRK
                     ImGui.Unindent();
                     ImGui.NewLine();
                     ImGui.Indent();
-                    ImGui.Text("Choose the action to pull with:     (hover each for more info)");
+                    ImGui.Text("選擇開怪技能：（將滑鼠移至各選項可查看詳細資訊）");
                     ImGui.Unindent();
                     ImGui.NewLine();
                     UserConfig.DrawRadioButton(DRK_ST_OpenerAction,

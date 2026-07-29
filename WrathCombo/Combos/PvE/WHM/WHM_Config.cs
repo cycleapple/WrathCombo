@@ -54,7 +54,7 @@ internal partial class WHM
                         itemWidth: medium);
       
                     ImGui.Indent();
-                    ImGui.TextUnformatted("For Non-Bosses, select what kind of content this applies to:");
+                    ImGui.TextUnformatted("針對非首領敵人，選擇要套用的內容類型：");
                     ImGui.NewLine();
                     ImGui.Indent();
                     DrawHorizontalRadioButton(
@@ -363,7 +363,7 @@ internal partial class WHM
                 
                 case Preset.WHM_Re_Asylum:
                     ImGui.Indent();
-                    ImGui.TextColored(ImGuiColors.DalamudGrey, "Options to try to Retarget Asylum to before Self:");
+                    ImGui.TextColored(ImGuiColors.DalamudGrey, "在自身之前，嘗試將庇護所重新選擇至下列目標：");
                     ImGui.Unindent();
                     DrawHorizontalMultiChoice(WHM_AsylumOptions,
                         "Enemy Hard Target", "Will place at hard target if enemy", 3, 0);
@@ -373,7 +373,7 @@ internal partial class WHM
                 
                 case Preset.WHM_Re_LiturgyOfTheBell:
                     ImGui.Indent();
-                    ImGui.TextColored(ImGuiColors.DalamudGrey, "Options to try to Retarget Asylum to before Self:");
+                    ImGui.TextColored(ImGuiColors.DalamudGrey, "在自身之前，嘗試將百合鈴重新選擇至下列目標：");
                     ImGui.Unindent();
                     DrawHorizontalMultiChoice(WHM_LiturgyOfTheBellOptions,
                         "Enemy Hard Target", "Will place at hard target if enemy", 2, 0);

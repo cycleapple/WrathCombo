@@ -45,8 +45,8 @@ internal partial class RDM
                         CustomComboFunctions.IsNotEnabled(CustomComboPreset.RDM_ST_MeleeCombo_IncludeRiposte))
                     {
                         ImGui.Indent();
-                        ImGui.TextColored(ImGuiColors.DalamudRed, "WARNING: RIPOSTE IS NOT ENABLED.");
-                        ImGui.TextColored(ImGuiColors.DalamudRed, "AUTO ROTATION WILL NOT START THE MELEE COMBO AUTOMATICALLY");
+                        ImGui.TextColored(ImGuiColors.DalamudRed, "警告：尚未啟用回刺。");
+                        ImGui.TextColored(ImGuiColors.DalamudRed, "自動循環不會自動開始近戰連段");
                         ImGui.Unindent();
                     }
                     break;

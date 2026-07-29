@@ -114,7 +114,7 @@ internal partial class AST
                 case CustomComboPreset.AST_ST_DPS_CombustUptime:
                     DrawSliderInt(0, 50, AST_ST_DPS_CombustOption, "Stop using at Enemy HP %. Set to Zero to disable this check.");
                     ImGui.Indent();
-                    ImGui.TextColored(ImGuiColors.DalamudYellow, "Select what kind of enemies the HP check should be applied to:");
+                    ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
                     DrawHorizontalRadioButton(AST_ST_DPS_CombustSubOption,
                         "Non-Bosses", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
                     DrawHorizontalRadioButton(AST_ST_DPS_CombustSubOption,
@@ -126,7 +126,7 @@ internal partial class AST
                 case CustomComboPreset.AST_DPS_Divination:
                     DrawSliderInt(0, 100, AST_ST_DPS_DivinationOption, "Stop using at Enemy HP %. Set to Zero to disable this check.");
                     ImGui.Indent();
-                    ImGui.TextColored(ImGuiColors.DalamudYellow, "Select what kind of enemies the HP check should be applied to:");
+                    ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
                     DrawHorizontalRadioButton(AST_ST_DPS_DivinationSubOption,
                         "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
                     DrawHorizontalRadioButton(AST_ST_DPS_DivinationSubOption,
@@ -160,7 +160,7 @@ internal partial class AST
                 case CustomComboPreset.AST_AOE_Divination:
                     DrawSliderInt(0, 100, AST_AOE_DivinationOption, "Stop using at Enemy HP %. Set to Zero to disable this check.");
                     ImGui.Indent();
-                    ImGui.TextColored(ImGuiColors.DalamudYellow, "Select what kind of enemies the HP check should be applied to:");
+                    ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
                     DrawHorizontalRadioButton(AST_AOE_DivinationSubOption,
                         "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
                     DrawHorizontalRadioButton(AST_AOE_DivinationSubOption,
@@ -361,7 +361,7 @@ internal partial class AST
                         indentDescription: true);
 
                     ImGui.Indent();
-                    ImGui.TextWrapped("Target Overrides:           (hover each for more info)");
+                    ImGui.TextWrapped("目標覆寫選項：（將滑鼠移至各選項可查看詳細資訊）");
                     ImGui.Unindent();
                     ImGui.NewLine();
                     DrawRadioButton(AST_QuickTarget_Override, "No Override", "Will not override the automatic party target viability checking with any manual input.\nThe cards will be targeted according to The Balance's priorities and status checking\n(like not doubling up on cards, and no damage down, etc.).", 0, descriptionAsTooltip: true);

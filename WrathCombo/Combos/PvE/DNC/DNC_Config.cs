@@ -32,7 +32,7 @@ internal partial class DNC
         private static void DrawAntiDriftOptions()
         {
             ImGuiEx.Spacing(new Vector2(40, 12));
-            ImGui.Text("Anti-Drift Options:     (hover each for more info)");
+            ImGui.Text("防止技能軸漂移選項：（將滑鼠移至各選項可查看詳細資訊）");
 
             #region Show a colored display of the user's current detected GCD
 
@@ -158,7 +158,7 @@ internal partial class DNC
                         "This WILL let you set up a conflict!");
                     ImGui.PopStyleColor();
                     ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.DalamudGrey);
-                    ImGui.TextWrapped("Double check the actions you are setting do not conflict with other combos you are using, or enable the feature below!");
+                    ImGui.TextWrapped("請確認所設定的技能不會與其他正在使用的連段衝突，或啟用下方功能！");
                     ImGui.PopStyleColor();
 
                     if (inputChanged)
@@ -214,7 +214,7 @@ internal partial class DNC
                     UserConfig.DrawAdditionalBoolChoice(DNC_ST_OpenerOption_Peloton,
                         $"Include {Peloton.ActionName()}", "");
 
-                    UserConfig.DrawBossOnlyChoice(DNC_ST_OpenerDifficulty, "Select what kind of content to use this opener in:");
+                    UserConfig.DrawBossOnlyChoice(DNC_ST_OpenerDifficulty, "選擇要使用此起手式的內容類型：");
                     ImGui.Unindent();
 
                     break;
@@ -436,7 +436,7 @@ internal partial class DNC
                         indentDescription: true);
 
                     ImGuiEx.Spacing(new Vector2(29, 12));
-                    ImGui.Text("Action to Show when Partner is Optimal Options:     (hover each for more info)");
+                    ImGui.Text("舞伴目標最佳時顯示的技能：（將滑鼠移至各選項可查看詳細資訊）");
                     ImGui.NewLine();
                     UserConfig.DrawRadioButton(
                         DNC_Partner_ActionToShow, "Let Game Decide",

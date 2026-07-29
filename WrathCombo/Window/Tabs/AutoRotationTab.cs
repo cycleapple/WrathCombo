@@ -233,27 +233,27 @@ namespace WrathCombo.Window.Tabs
                     ImGuiExtensions.Prefix(true);
                     P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AutoRezDPSJobs");
                     changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                        $"Apply to {SMN.JobID.JobAbbreviation()} & {RDM.JobID.JobAbbreviation()}", ref cfg.HealerSettings.AutoRezDPSJobs, "AutoRezDPSJobs");
-                    ImGuiComponents.HelpMarker($"When playing as {SMN.JobID.JobAbbreviation()} or {RDM.JobID.JobAbbreviation()}, also attempt to raise a dead party member. {RDM.JobID.JobAbbreviation()} will only resurrect with {RoleActions.Magic.Buffs.Swiftcast.StatusName()} or {RDM.Buffs.Dualcast.StatusName()} active.");
+                        $"套用至 {SMN.JobID.JobAbbreviation()} 與 {RDM.JobID.JobAbbreviation()}", ref cfg.HealerSettings.AutoRezDPSJobs, "AutoRezDPSJobs");
+                    ImGuiComponents.HelpMarker($"使用 {SMN.JobID.JobAbbreviation()} 或 {RDM.JobID.JobAbbreviation()} 時也會嘗試復活倒下的隊員。{RDM.JobID.JobAbbreviation()} 只會在具有 {RoleActions.Magic.Buffs.Swiftcast.StatusName()} 或 {RDM.Buffs.Dualcast.StatusName()} 時復活。");
                 }
 
                 P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AutoCleanse");
                 changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
                     $"Auto-{RoleActions.Healer.Esuna.ActionName()}", ref cfg.HealerSettings.AutoCleanse, "AutoCleanse");
-                ImGuiComponents.HelpMarker($"Will {RoleActions.Healer.Esuna.ActionName()} any cleansable debuffs (Healing takes priority).");
+                ImGuiComponents.HelpMarker($"使用 {RoleActions.Healer.Esuna.ActionName()} 解除可驅散的負面狀態（治療優先）。");
 
                 P.UIHelper.ShowIPCControlledIndicatorIfNeeded("ManageKardia");
                 changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                    $"[{SGE.JobID.JobAbbreviation()}] Automatically Manage Kardia", ref cfg.HealerSettings.ManageKardia, "ManageKardia");
-                ImGuiComponents.HelpMarker($"Switches {SGE.Kardia.ActionName()} to party members currently being targeted by enemies, prioritising tanks if multiple people are being targeted.");
+                    $"[{SGE.JobID.JobAbbreviation()}] 自動管理 {SGE.Kardia.ActionName()}", ref cfg.HealerSettings.ManageKardia, "ManageKardia");
+                ImGuiComponents.HelpMarker($"將 {SGE.Kardia.ActionName()} 切換至目前被敵人鎖定的隊員；若多人同時被鎖定，優先選擇防護職業。");
                 if (cfg.HealerSettings.ManageKardia)
                 {
                     ImGuiExtensions.Prefix(cfg.HealerSettings.ManageKardia);
-                    changed |= ImGui.Checkbox($"Limit {SGE.Kardia.ActionName()} swapping to tanks only", ref cfg.HealerSettings.KardiaTanksOnly);
+                    changed |= ImGui.Checkbox($"只在防護職業之間切換 {SGE.Kardia.ActionName()}", ref cfg.HealerSettings.KardiaTanksOnly);
                 }
 
-                changed |= ImGui.Checkbox($"[{WHM.JobID.JobAbbreviation()}/{AST.JobID.JobAbbreviation()}] Pre-emptively apply heal over time on focus target", ref cfg.HealerSettings.PreEmptiveHoT);
-                ImGuiComponents.HelpMarker($"Applies {WHM.Regen.ActionName()}/{AST.AspectedBenefic.ActionName()} to your focus target when out of combat and they are 30y or less away from an enemy. (Bypasses \"Only in Combat\" setting)");
+                changed |= ImGui.Checkbox($"[{WHM.JobID.JobAbbreviation()}/{AST.JobID.JobAbbreviation()}] 預先對焦點目標施加持續治療", ref cfg.HealerSettings.PreEmptiveHoT);
+                ImGuiComponents.HelpMarker($"非戰鬥中且焦點目標距離敵人不超過 30 雅姆時，對其施放 {WHM.Regen.ActionName()}／{AST.AspectedBenefic.ActionName()}。（略過「僅限戰鬥中」設定）");
 
                 P.UIHelper.ShowIPCControlledIndicatorIfNeeded("IncludeNPCs");
                 changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded("治療友方 NPC", ref cfg.HealerSettings.IncludeNPCs);
@@ -263,13 +263,13 @@ namespace WrathCombo.Window.Tabs
 
             ImGuiEx.TextUnderlined("進階");
             changed |= ImGui.InputInt("節流延遲（毫秒）", ref cfg.Throttler);
-            ImGuiComponents.HelpMarker("Auto-Rotation has a built in throttler to only run every so many milliseconds for performance reasons. If you experience issues with frame rate, try increasing this value. Do note this may have a side-effect of introducing clipping if set too high, so experiment with the value.");
+            ImGuiComponents.HelpMarker("自動循環內建節流機制，基於效能考量只會每隔指定毫秒執行一次。若畫面更新率受到影響，可提高此數值；但設得過高可能導致技能卡頓，請自行測試合適的數值。");
 
             using (ImRaii.Disabled(!OrbwalkerIPC.IsEnabled))
             {
                 changed |= ImGui.Checkbox("啟用 Orbwalker 整合", ref cfg.OrbwalkerIntegration);
 
-                ImGuiComponents.HelpMarker($"This will make Auto-Rotation use actions with cast times even whilst moving, as Orbwalker will lock movement during the cast.");
+                ImGuiComponents.HelpMarker("啟用後，自動循環可在移動時使用有詠唱時間的技能，因為 Orbwalker 會在詠唱期間鎖定移動。");
             }
 
             if (changed)

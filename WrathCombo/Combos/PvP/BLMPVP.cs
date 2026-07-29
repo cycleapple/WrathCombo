@@ -99,7 +99,7 @@ namespace WrathCombo.Combos.PvP
                             if (ImGui.IsItemHovered())
                             {
                                 ImGui.BeginTooltip();
-                                ImGui.TextUnformatted("When under the effect of Astral Fire, must be\nmoving this long before using Blizzard spells.");
+                                ImGui.TextUnformatted("處於星極火狀態時，必須持續移動達此時間\n才會使用冰結類技能。");
                                 ImGui.EndTooltip();
                             }
                         }
@@ -117,7 +117,7 @@ namespace WrathCombo.Combos.PvP
                         UserConfig.DrawSliderInt(10, 100, BLMPvP.Config.BLMPvP_ElementalWeave_PlayerHP, "Player HP%", 180);
                         ImGui.Spacing();
                         UserConfig.DrawAdditionalBoolChoice(BLMPvP.Config.BLMPvP_ElementalWeave_SubOption, "Defensive Elemental Weave",
-                            "When under, uses Wreath of Ice instead.\n- Will not use outside combat.");
+                            "低於門檻時改用冰雪花環。\n- 非戰鬥中不會使用。");
 
                         break;
 

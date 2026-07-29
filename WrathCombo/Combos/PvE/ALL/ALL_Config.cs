@@ -28,7 +28,7 @@ internal partial class All
                 
                 case CustomComboPreset.ALL_Healer_RescueRetargeting:
                     ImGui.Indent();
-                    ImGuiEx.TextWrapped(ImGuiColors.DalamudYellow,"UI Mouseover > Field Mouseover > Focus Target > Soft Target > Hard Target");
+                    ImGuiEx.TextWrapped(ImGuiColors.DalamudYellow, "介面滑鼠指向 > 場景滑鼠指向 > 焦點目標 > 軟目標 > 硬目標");
                     ImGui.Unindent();
                     UserConfig.DrawHorizontalMultiChoice(ALL_Healer_RescueRetargetingOptions,"Field Mouseover", "Will add Field Mouseover to the priority stack", 3, 0);
                     UserConfig.DrawHorizontalMultiChoice(ALL_Healer_RescueRetargetingOptions,"Focus Target", "Will add Focus Target to the priority stack", 3, 1);

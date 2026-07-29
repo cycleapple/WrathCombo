@@ -807,7 +807,7 @@ namespace WrathCombo.Window.Functions
             using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.DalamudYellow))
             {
                 ImGui.Text(overrideText.IsNullOrEmpty()
-                    ? "Select what kind of content this option applies to:"
+                    ? "選擇此選項適用的內容類型："
                     : overrideText);
             }
 
@@ -852,7 +852,7 @@ namespace WrathCombo.Window.Functions
             {
 
                 ImGui.TextUnformatted(overrideText.IsNullOrEmpty()
-                    ? "Select what kind of content this option applies to:"
+                    ? "選擇此選項適用的內容類型："
                     : overrideText);
             }
 
