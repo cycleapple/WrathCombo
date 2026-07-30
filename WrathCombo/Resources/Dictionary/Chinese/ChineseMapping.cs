@@ -28,8 +28,6 @@ namespace WrathCombo.Resources.Dictionary.Chinese
 #endif
 
             var lines = text.Split(['\n'], StringSplitOptions.None);
-            bool anyReplacement = false;
-
             for (int i = 0; i < lines.Length; i++)
             {
                 string originalLine = lines[i];
@@ -47,7 +45,6 @@ namespace WrathCombo.Resources.Dictionary.Chinese
 #if DEBUG
                             DictionaryDebugger.RecordUsedKeyInSession(pair.Key, text);
 #endif
-                            anyReplacement = true;
                         }
                     }
                 }
@@ -82,10 +79,10 @@ namespace WrathCombo.Resources.Dictionary.Chinese
 
                 PluginLog.Information($"中文替換字典初始化完成，共載入 {_replacements.Count} 個鍵值對，耗時 {stopwatch.ElapsedMilliseconds} 毫秒");
 
+#if DEBUG
                 if (_duplicateKeysLog.Length > 0)
-                {
                     PluginLog.Warning($"初始化過程中檢測到重複鍵值對，{_duplicateKeysLog}");
-                }
+#endif
             }
             catch (System.Exception ex)
             {
@@ -176,7 +173,10 @@ namespace WrathCombo.Resources.Dictionary.Chinese
             allKeyValuePairs.AddRange(DOLSkills.GetSkills());
             allKeyValuePairs.AddRange(Apocalypse.GetDescriptions());
 
-            // 檢測並記錄重複鍵
+#if DEBUG
+            // Duplicate details are useful to localization developers, but the
+            // merged dictionaries intentionally overlap and should not flood
+            // release logs with thousands of lines.
             var duplicates = allKeyValuePairs
                 .GroupBy(kvp => kvp.Key)
                 .Where(g => g.Count() > 1)
@@ -195,6 +195,7 @@ namespace WrathCombo.Resources.Dictionary.Chinese
                     }
                 }
             }
+#endif
 
             // 過濾掉重複鍵並填充最終字典
             // 只保留每個鍵的第一個出現
