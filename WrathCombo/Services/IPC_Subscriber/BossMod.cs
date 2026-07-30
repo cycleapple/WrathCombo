@@ -52,6 +52,24 @@ internal sealed class BossModIPC(
             return false;
         }
 
+        try
+        {
+            var ipcAiActive = _aiIsActive();
+            var aiForbidActions = _aiForbidActions();
+
+            PluginLog.Verbose(
+                $"[ConflictingPlugins] [{PluginName}] `AI.IsActive`: {ipcAiActive}, " +
+                $"`AI.ForbidActions`: {aiForbidActions}");
+
+            return ipcAiActive && !aiForbidActions;
+        }
+        catch (Exception e)
+        {
+            PluginLog.Debug(
+                $"[ConflictingPlugins] [{PluginName}] AI status IPC is unavailable; " +
+                $"trying legacy reflection: {e.Message}");
+        }
+
         var ai = Plugin.GetFoP("_ai");
         if (ai == null)
         {
@@ -101,5 +119,11 @@ internal sealed class BossModIPC(
 
     [EzIPC("Configuration.LastModified")]
     private readonly Func<DateTime> _lastModified = null!;
+
+    [EzIPC("AI.IsActive")]
+    private readonly Func<bool> _aiIsActive = null!;
+
+    [EzIPC("AI.ForbidActions")]
+    private readonly Func<bool> _aiForbidActions = null!;
 #pragma warning restore CS8618, CS0649
 }
