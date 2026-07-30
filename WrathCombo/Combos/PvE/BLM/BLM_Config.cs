@@ -15,11 +15,11 @@ internal partial class BLM
             {
                 case CustomComboPreset.BLM_ST_Opener:
                     DrawHorizontalRadioButton(BLM_SelectedOpener,
-                        "Standard opener", "Uses Standard opener",
+                        "標準起手", "使用標準起手",
                         0);
 
                     DrawHorizontalRadioButton(BLM_SelectedOpener,
-                        $"{Flare.ActionName()} opener", $"Uses {Flare.ActionName()} opener",
+                        $"{Flare.ActionName()}起手", $"使用{Flare.ActionName()}起手",
                         1);
 
                     DrawBossOnlyChoice(BLM_Balance_Content);
@@ -32,59 +32,59 @@ internal partial class BLM
 
                 case CustomComboPreset.BLM_ST_Movement:
                     DrawHorizontalMultiChoice(BLM_ST_MovementOption,
-                        $"Use {Triplecast.ActionName()}", "", 4, 0);
+                        $"使用{Triplecast.ActionName()}", "", 4, 0);
 
                     DrawPriorityInput(BLM_ST_Movement_Priority,
-                        4, 0, $"{Triplecast.ActionName()} Priority: ");
+                        4, 0, $"{Triplecast.ActionName()}優先順序：");
 
                     DrawHorizontalMultiChoice(BLM_ST_MovementOption,
-                        $"Use {Paradox.ActionName()}", "", 4, 1);
+                        $"使用{Paradox.ActionName()}", "", 4, 1);
 
                     DrawPriorityInput(BLM_ST_Movement_Priority,
-                        4, 1, $"{Paradox.ActionName()} Priority: ");
+                        4, 1, $"{Paradox.ActionName()}優先順序：");
 
                     DrawHorizontalMultiChoice(BLM_ST_MovementOption,
-                        $"Use {Role.Swiftcast.ActionName()}", "", 4, 2);
+                        $"使用{Role.Swiftcast.ActionName()}", "", 4, 2);
 
                     DrawPriorityInput(BLM_ST_Movement_Priority,
-                        4, 2, $"{Role.Swiftcast.ActionName()} Priority: ");
+                        4, 2, $"{Role.Swiftcast.ActionName()}優先順序：");
 
                     DrawHorizontalMultiChoice(BLM_ST_MovementOption,
-                        $"Use {Foul.ActionName()} / {Xenoglossy.ActionName()}", "", 4, 3);
+                        $"使用{Foul.ActionName()} / {Xenoglossy.ActionName()}", "", 4, 3);
 
                     DrawPriorityInput(BLM_ST_Movement_Priority,
-                        4, 3, $"{Xenoglossy.ActionName()} Priority: ");
+                        4, 3, $"{Xenoglossy.ActionName()}優先順序：");
                     break;
 
                 case CustomComboPreset.BLM_ST_UsePolyglot:
                     if (DrawSliderInt(0, 3, BLM_ST_Polyglot_Save,
-                        "How many charges to save for manual use?"))
+                        "手動保留異言充能數"))
                         if (BLM_ST_Polyglot_Movement > 3 - BLM_ST_Polyglot_Save)
                             BLM_ST_Polyglot_Movement.Value = 3 - BLM_ST_Polyglot_Save;
 
                     if (DrawSliderInt(0, 3, BLM_ST_Polyglot_Movement,
-                        "How many charges to save for movement?"))
+                        "為移動保留異言充能數"))
                         if (BLM_ST_Polyglot_Save > 3 - BLM_ST_Polyglot_Movement)
                             BLM_ST_Polyglot_Save.Value = 3 - BLM_ST_Polyglot_Movement;
                     break;
 
                 case CustomComboPreset.BLM_ST_Triplecast:
                     DrawHorizontalRadioButton(BLM_ST_Triplecast_SubOption,
-                        "Always", "Use always.", 0);
+                        "總是", "總是使用", 0);
 
                     DrawHorizontalRadioButton(BLM_ST_Triplecast_SubOption,
-                        "Not under Leylines", "Do not use while under the effect of Leylines.\nThis is the recommended behaviour.", 1);
+                        "黑魔紋時不使用", "處於黑魔紋效果下時不使用三連詠唱。\n推薦此選項。", 1);
 
                     if (BLM_ST_MovementOption[0])
                         DrawSliderInt(1, 2, BLM_ST_Triplecast_Movement,
-                            "How many charges to save for movement?");
+                            "為移動保留多少次三連詠唱充能？");
                     break;
 
 
                 case CustomComboPreset.BLM_ST_Thunder:
 
                     DrawSliderInt(0, 50, BLM_ST_ThunderOption,
-                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
+                        "敵人HP低於此百分比時停止使用。設為0禁用此檢查。");
 
                     ImGui.Indent();
 
@@ -92,20 +92,20 @@ internal partial class BLM
                         "選擇要套用 HP 檢查的敵人類型：");
 
                     DrawHorizontalRadioButton(BLM_ST_Thunder_SubOption,
-                        "Non-Bosses", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
+                        "非Boss", "僅對非Boss敵人應用上述HP檢測。\n只在不是Boss時提前停止DoT。", 0);
 
                     DrawHorizontalRadioButton(BLM_ST_Thunder_SubOption,
-                        "All Enemies", "Applies the HP check above to all enemies.", 1);
+                        "全部敵人", "對所有敵人應用上述HP檢測。", 1);
 
                     DrawSliderInt(0, 5, BLM_ST_ThunderUptime_Threshold,
-                        "Seconds remaining before reapplying the DoT. Set to Zero to disable this check.");
+                        "剩餘多少秒應用DoT。設定為零禁用此檢測。");
 
                     ImGui.Unindent();
                     break;
 
                 case CustomComboPreset.BLM_ST_Manaward:
                     DrawSliderInt(0, 100, BLM_ST_Manaward_Threshold,
-                        $"{Manaward.ActionName()} HP percentage threshold");
+                        $"{Manaward.ActionName()}觸發HP百分比閾值");
                     break;
 
                 case CustomComboPreset.BLM_AoE_LeyLines:
@@ -115,12 +115,12 @@ internal partial class BLM
 
                 case CustomComboPreset.BLM_AoE_Triplecast:
                     DrawSliderInt(0, 1, BLM_AoE_Triplecast_HoldCharges,
-                        $"How many charges of {Triplecast.ActionName()} to keep ready? (0 = Use all)");
+                        $"保留{Triplecast.ActionName()}的充能數（0為全部使用）");
                     break;
 
                 case CustomComboPreset.BLM_AoE_Thunder:
                     DrawSliderInt(0, 50, BLM_AoE_ThunderHP,
-                        $"Stop Using {Thunder2.ActionName()} When Target HP% is at or Below (Set to 0 to Disable This Check)");
+                        $"目標HP低於此百分比時停止使用{Thunder2.ActionName()}（設為0禁用此檢查）");
                     break;
 
                 case CustomComboPreset.BLM_Variant_Cure:

@@ -54,10 +54,10 @@ internal partial class BRD
                     ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
 
                     DrawHorizontalRadioButton(BRD_Adv_DoT_SubOption,
-                        "Non-boss Encounters Only", $"Applies HP check to Non-Boss Encounters only", 0);
+                        "\u50c5\u9650\u975e\u9996\u9818\u6230", $"\u50c5\u5c0d\u975e\u9996\u9818\u6575\u4eba\u61c9\u7528 HP \u6aa2\u67e5", 0);
 
                     DrawHorizontalRadioButton(BRD_Adv_DoT_SubOption,
-                        "All Content", $"Applies HP Check to All Content", 1);
+                        "\u5168\u90e8\u5167\u5bb9", $"\u5c0d\u6240\u6709\u5167\u5bb9\u61c9\u7528 HP \u6aa2\u6e2c", 1);
 
                     ImGui.Unindent();
 
@@ -73,10 +73,10 @@ internal partial class BRD
                     ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
 
                     DrawHorizontalRadioButton(BRD_Adv_Buffs_SubOption,
-                        "Non-boss Encounters Only", $"Applies HP check to Non-Boss Encounters only", 0);
+                        "\u50c5\u9650\u975e\u9996\u9818\u6230", $"\u50c5\u5c0d\u975e\u9996\u9818\u6575\u4eba\u61c9\u7528 HP \u6aa2\u67e5", 0);
 
                     DrawHorizontalRadioButton(BRD_Adv_Buffs_SubOption,
-                        "All Content", $"Applies HP Check to All Content", 1);
+                        "\u5168\u90e8\u5167\u5bb9", $"\u5c0d\u6240\u6709\u5167\u5bb9\u61c9\u7528 HP \u6aa2\u6e2c", 1);
 
                     ImGui.Unindent();
 
@@ -92,10 +92,10 @@ internal partial class BRD
                     ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
 
                     DrawHorizontalRadioButton(BRD_AoE_Adv_Buffs_SubOption,
-                        "Non-boss Encounters Only", $"Applies HP check to Non-Boss Encounters only", 0);
+                        "\u50c5\u9650\u975e\u9996\u9818\u6230", $"\u50c5\u5c0d\u975e\u9996\u9818\u6575\u4eba\u61c9\u7528 HP \u6aa2\u67e5", 0);
 
                     DrawHorizontalRadioButton(BRD_AoE_Adv_Buffs_SubOption,
-                        "All Content", $"Applies HP Check to All Content", 1);
+                        "\u5168\u90e8\u5167\u5bb9", $"\u5c0d\u6240\u6709\u5167\u5bb9\u61c9\u7528 HP \u6aa2\u6e2c", 1);
 
                     ImGui.Unindent();
 
@@ -103,13 +103,13 @@ internal partial class BRD
 
                 case CustomComboPreset.BRD_ST_SecondWind:
                     DrawSliderInt(0, 100, BRD_STSecondWindThreshold,
-                        "HP percent threshold to use Second Wind below.");
+                        "低於該HP百分比時使用內丹。");
 
                     break;
 
                 case CustomComboPreset.BRD_AoE_SecondWind:
                     DrawSliderInt(0, 100, BRD_AoESecondWindThreshold,
-                        "HP percent threshold to use Second Wind below.");
+                        "低於該HP百分比時使用內丹。");
 
                     break;
 

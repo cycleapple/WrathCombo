@@ -98,7 +98,7 @@ namespace WrathCombo.Window.Tabs
                     if (cfg.DPSSettings.DPSAoETargets < 0)
                         cfg.DPSSettings.DPSAoETargets = 0;
                 }
-                ImGuiComponents.HelpMarker($"Disabling this will turn off AoE DPS features. Otherwise will require the amount of targets required to be in range of an AoE feature's attack to use. This applies to all 3 roles, and for any features that deal AoE damage.");
+                ImGuiComponents.HelpMarker($"\u95dc\u9589\u6b64\u9805\u5c07\u7981\u7528 AoE \u8f38\u51fa\u529f\u80fd\u3002\u555f\u7528\u6642\uff0c\u53ea\u6709\u7576\u9054\u5230\u8a2d\u5b9a\u76ee\u6a19\u6578\u91cf\u4e14\u4f4d\u65bc AoE \u6280\u80fd\u653b\u64ca\u7bc4\u570d\u5167\u624d\u6703\u4f7f\u7528\u3002\u9069\u7528\u65bc\u4e09\u7a2e\u8077\u80fd\u4e2d\u7684\u6240\u6709 AoE \u50b7\u5bb3\u529f\u80fd\u3002");
 
                 ImGuiEx.SetNextItemWidthScaled(100);
                 changed |= ImGui.SliderFloat("最大目標距離", ref cfg.DPSSettings.MaxDistance, 1, 30);
@@ -202,13 +202,13 @@ namespace WrathCombo.Window.Tabs
                     if (cfg.HealerSettings.AoEHealTargetCount < 0)
                         cfg.HealerSettings.AoEHealTargetCount = 0;
                 }
-                ImGuiComponents.HelpMarker($"Disabling this will turn off AoE Healing features. Otherwise will require the amount of targets required to be in range of an AoE feature's heal to use.");
+                ImGuiComponents.HelpMarker($"\u95dc\u9589\u6b64\u9805\u5c07\u7981\u7528 \u7fa4\u9ad4\u6cbb\u7642\u529f\u80fd\u3002\u555f\u7528\u6642\uff0c\u53ea\u6709\u7576\u9054\u5230\u8a2d\u5b9a\u76ee\u6a19\u6578\u91cf\u4e14\u4f4d\u65bc \u7fa4\u9ad4\u6cbb\u7642\u6280\u80fd\u7bc4\u570d\u5167\u624d\u6703\u4f7f\u7528\u3002");
                 ImGuiEx.SetNextItemWidthScaled(100);
                 changed |= ImGui.InputInt("符合條件後延遲開始治療（秒）", ref cfg.HealerSettings.HealDelay);
 
                 if (cfg.HealerSettings.HealDelay < 0)
                     cfg.HealerSettings.HealDelay = 0;
-                ImGuiComponents.HelpMarker("Don't set this too high! 1-2 seconds is normally comfy enough to be considered a natural reaction.");
+                ImGuiComponents.HelpMarker("\u4e0d\u8981\u8a2d\u5f97\u592a\u9ad8\uff01\u901a\u5e38 1-2 \u79d2\u5c31\u8db3\u5920\u63a5\u8fd1\u81ea\u7136\u53cd\u61c9\u3002");
 
                 ImGui.Spacing();
 

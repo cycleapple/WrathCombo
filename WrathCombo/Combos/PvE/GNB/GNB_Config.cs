@@ -93,56 +93,56 @@ internal partial class GNB
                 #region Single-Target
                 case CustomComboPreset.GNB_ST_Opener:
                     UserConfig.DrawHorizontalRadioButton(GNB_Opener_NM,
-                        $"Normal {NoMercy.ActionName()}", $"Uses {NoMercy.ActionName()} normally in all openers", 0);
+                        $"常規{NoMercy.ActionName()}", $"在所有起手技能中正常使用{NoMercy.ActionName()}", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_Opener_NM,
-                        $"Early {NoMercy.ActionName()}", $"Uses {NoMercy.ActionName()} as soon as possible in all openers", 1);
+                        $"提前{NoMercy.ActionName()}", $"在所有起手技能中儘快使用{NoMercy.ActionName()}", 1);
                     
                     if (UserConfig.DrawHorizontalRadioButton(GNB_Opener_StartChoice,
-                        $"Normal Opener", $"Starts opener with {LightningShot.ActionName()}", 0))
+                        $"常規起手", $"以{LightningShot.ActionName()}作為起手開始", 0))
                     {
                         if (!CustomComboFunctions.InCombat())
                             Opener().OpenerStep = 1;
                     }    
                     UserConfig.DrawHorizontalRadioButton(GNB_Opener_StartChoice,
-                        $"Early Opener", $"Starts opener with {KeenEdge.ActionName()} instead, skipping {LightningShot.ActionName()}", 1);
+                        $"提前起手", $"以{KeenEdge.ActionName()}作為起手，跳過{LightningShot.ActionName()}", 1);
                     
                     UserConfig.DrawBossOnlyChoice(GNB_ST_Balance_Content);
                     break;
 
                 case CustomComboPreset.GNB_ST_NoMercy:
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_NoMercy_SubOption,
-                        "All content", $"Uses {CustomComboFunctions.GetActionName(NoMercy)} regardless of content", 0);
+                        "全部內容", $"無論內容如何都使用{CustomComboFunctions.GetActionName(NoMercy)}", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_NoMercy_SubOption,
-                        "Boss encounters Only", $"Only uses {CustomComboFunctions.GetActionName(NoMercy)} when in Boss encounters", 1);
+                        "僅Boss戰", $"僅在Boss戰中使用{CustomComboFunctions.GetActionName(NoMercy)}", 1);
                     
                     UserConfig.DrawSliderInt(0, 75, GNB_ST_NoMercyStop,
-                        " Stop usage if Target HP% is below set value.\n  To disable this, set value to 0");
+                        " 若目標HP%低於設定值則停止使用。\n 設為0以禁用此功能");
                     break;
 
                 case CustomComboPreset.GNB_ST_BurstStrike:
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Overcap_Choice,
-                        "Include Overcap Protection", $"Includes {BurstStrike.ActionName()} to prevent overcapping on cartridges", 0);
+                        "包含溢位保護", $"包含{BurstStrike.ActionName()}以防止彈藥溢位", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Overcap_Choice,
-                        "Exclude Overcap Protection", $"Excludes {BurstStrike.ActionName()}, regardless of cartridge count", 1);
+                        "不包含溢位保護", $"無論彈藥數量如何都不包含{BurstStrike.ActionName()}", 1);
                     break;
                 #endregion
 
                 #region AoE
                 case CustomComboPreset.GNB_AoE_NoMercy:
                     UserConfig.DrawSliderInt(0, 75, GNB_AoE_NoMercyStop,
-                        " Stop usage if Target HP% is below set value.\n To disable this, set value to 0");
+                        " 若目標HP%低於設定值則停止使用。\n 設為0以禁用此功能");
                     break;
 
                 case CustomComboPreset.GNB_AoE_FatedCircle:
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Overcap_Choice,
-                        "Include Overcap Protection", $"Includes {FatedCircle.ActionName()} to prevent overcapping on cartridges", 0);
+                        "包含溢位保護", $"包含{FatedCircle.ActionName()}以防止彈藥溢位", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Overcap_Choice,
-                        "Exclude Overcap Protection", $"Excludes {FatedCircle.ActionName()}, regardless of cartridge count", 1);
+                        "不包含溢位保護", $"無論彈藥數量如何都不包含{FatedCircle.ActionName()}", 1);
                     ImGui.Spacing();
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_FatedCircle_BurstStrike,
-                        "Include Burst Strike", $"Includes {BurstStrike.ActionName()} instead when {FatedCircle.ActionName()} is unavailable", 0);
+                        "包含爆發擊", $"當{FatedCircle.ActionName()}不可用時，改為使用{BurstStrike.ActionName()}", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_FatedCircle_BurstStrike,
-                        "Exclude Burst Strike", $"Excludes {BurstStrike.ActionName()} when {FatedCircle.ActionName()} is unavailable", 1);
+                        "不包含爆發擊", $"當{FatedCircle.ActionName()}不可用時，不使用{BurstStrike.ActionName()}", 1);
                     break;
                 #endregion
 
@@ -151,7 +151,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_ST_Corundum_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Corundum_SubOption,
-                        "All Enemies", $"Uses {HeartOfCorundum.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {HeartOfCorundum.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Corundum_SubOption,
                         "Bosses Only", $"Only ses {HeartOfCorundum.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -160,7 +160,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_AoE_Corundum_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Corundum_SubOption,
-                        "All Enemies", $"Uses {HeartOfCorundum.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {HeartOfCorundum.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Corundum_SubOption,
                         "Bosses Only", $"Only uses {HeartOfCorundum.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -171,7 +171,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(0, 1, GNB_ST_Aurora_Charges,
                         "How many charges to keep ready?\n (0 = Use All)");
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Aurora_SubOption,
-                        "All Enemies", $"Uses {Aurora.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Aurora.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Aurora_SubOption,
                         "Bosses Only", $"Only uses {Aurora.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -182,7 +182,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(0, 1, GNB_AoE_Aurora_Charges,
                         "How many charges to keep ready?\n (0 = Use All)");
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Aurora_SubOption,
-                        "All Enemies", $"Uses {Aurora.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Aurora.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Aurora_SubOption,
                         "Bosses Only", $"Only uses {Aurora.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -191,7 +191,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_ST_Rampart_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Rampart_SubOption,
-                        "All Enemies", $"Uses {Role.Rampart.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Role.Rampart.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Rampart_SubOption,
                         "Bosses Only", $"Only uses {Role.Rampart.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -200,7 +200,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_AoE_Rampart_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Rampart_SubOption,
-                        "All Enemies", $"Uses {Role.Rampart.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Role.Rampart.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Rampart_SubOption,
                         "Bosses Only", $"Only uses {Role.Rampart.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -209,7 +209,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_ST_Camouflage_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Camouflage_SubOption,
-                        "All Enemies", $"Uses {Camouflage.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Camouflage.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Camouflage_SubOption,
                         "Bosses Only", $"Only uses {Camouflage.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -218,7 +218,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_AoE_Camouflage_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Camouflage_SubOption,
-                        "All Enemies", $"Uses {Camouflage.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Camouflage.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Camouflage_SubOption,
                         "Bosses Only", $"Only uses {Camouflage.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -227,7 +227,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_ST_Nebula_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Nebula_SubOption,
-                        "All Enemies", $"Uses {Nebula.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Nebula.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Nebula_SubOption,
                         "Bosses Only", $"Only uses {Nebula.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -236,7 +236,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_AoE_Nebula_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Nebula_SubOption,
-                        "All Enemies", $"Uses {Nebula.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Nebula.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Nebula_SubOption,
                         "Bosses Only", $"Only uses {Nebula.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -245,7 +245,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_ST_Superbolide_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Superbolide_SubOption,
-                        "All Enemies", $"Uses {Superbolide.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Superbolide.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Superbolide_SubOption,
                         "Bosses Only", $"Only uses {Superbolide.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -254,7 +254,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_AoE_Superbolide_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Superbolide_SubOption,
-                        "All Enemies", $"Uses {Superbolide.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Superbolide.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Superbolide_SubOption,
                         "Bosses Only", $"Only uses {Superbolide.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -263,7 +263,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_ST_Reprisal_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Reprisal_SubOption,
-                        "All Enemies", $"Uses {Role.Reprisal.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Role.Reprisal.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_ST_Reprisal_SubOption,
                         "Bosses Only", $"Only uses {Role.Reprisal.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -272,7 +272,7 @@ internal partial class GNB
                     UserConfig.DrawSliderInt(1, 100, GNB_AoE_Reprisal_Health,
                         "Player HP% to be \nless than or equal to:", 200);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Reprisal_SubOption,
-                        "All Enemies", $"Uses {Role.Reprisal.ActionName()} regardless of targeted enemy type.", 0);
+                        "\u6240\u6709\u6575\u4eba", $"Uses {Role.Reprisal.ActionName()} regardless of targeted enemy type.", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_AoE_Reprisal_SubOption,
                         "Bosses Only", $"Only uses {Role.Reprisal.ActionName()} when the targeted enemy is a boss.", 1);
                     break;
@@ -338,7 +338,7 @@ internal partial class GNB
                 case CustomComboPreset.GNB_Mit_ArmsLength:
                     ImGui.Indent();
                     UserConfig.DrawHorizontalRadioButton(GNB_Mit_ArmsLength_Boss, 
-                        "All Enemies", "Will use Arm's Length regardless of the type of enemy.",
+                        "\u6240\u6709\u6575\u4eba", "Will use Arm's Length regardless of the type of enemy.",
                         (int)BossAvoidance.Off, 125f);
                     UserConfig.DrawHorizontalRadioButton(
                         GNB_Mit_ArmsLength_Boss, 
@@ -380,9 +380,9 @@ internal partial class GNB
 
                 case CustomComboPreset.GNB_GF_BurstStrike:
                     UserConfig.DrawHorizontalRadioButton(GNB_GF_Overcap_Choice,
-                        "Include Overcap Protection", $"Includes {BurstStrike.ActionName()} to prevent overcapping on cartridges", 0);
+                        "包含溢位保護", $"包含{BurstStrike.ActionName()}以防止彈藥溢位", 0);
                     UserConfig.DrawHorizontalRadioButton(GNB_GF_Overcap_Choice,
-                        "Exclude Overcap Protection", $"Excludes {BurstStrike.ActionName()}, regardless of cartridge count", 1);
+                        "不包含溢位保護", $"無論彈藥數量如何都不包含{BurstStrike.ActionName()}", 1);
                     break;
 
                 case CustomComboPreset.GNB_ST_Simple:

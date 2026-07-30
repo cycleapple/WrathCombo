@@ -54,12 +54,10 @@ internal partial class SMN
                     DrawBossOnlyChoice(SMN_Balance_Content);
 
                     ImGui.NewLine();
-
-                    DrawHorizontalRadioButton(SMN_Opener_SkipSwiftcast, "Use Swiftcast",
-                        "Will use Swiftcast in opener to try and snapshot in pots for lower gcds", 1);
-
-                    DrawHorizontalRadioButton(SMN_Opener_SkipSwiftcast, "Skip Swiftcast",
-                        "Will not use swiftcast in opener for higher gcds", 2);
+                    DrawHorizontalRadioButton(SMN_Opener_SkipSwiftcast, "使用即刻詠唱",
+                        "將在起手式中插入即刻詠唱，確保藥水效果覆蓋到短GCD技能。", 1);
+                    DrawHorizontalRadioButton(SMN_Opener_SkipSwiftcast, "跳過即刻詠唱",
+                        "不在起手式中插入即刻詠唱，優先保證高GCD技能覆蓋。", 2);
                     break;
 
                 case CustomComboPreset.SMN_ST_Advanced_Combo_Titan:

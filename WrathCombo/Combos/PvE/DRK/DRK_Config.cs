@@ -73,36 +73,36 @@ internal partial class DRK
                     ImGui.Unindent();
                     ImGui.NewLine();
                     UserConfig.DrawRadioButton(DRK_ST_OpenerAction,
-                        "Unmend (Standard)",
-                        "Will use Unmend to pull, if selected.\n" +
-                        "Should start at -1.0 seconds.\n\n" +
-                        "Recommended by The Balance.",
+                        "傷殘 (標準)",
+                        "如果選擇，將使用傷殘開怪。\n" +
+                        "應該在-1.0秒時開始。\n\n" +
+                        "The Balance 社群推薦。",
                         outputValue: (int) PullAction.Unmend,
                         descriptionAsTooltip: true);
                     UserConfig.DrawRadioButton(DRK_ST_OpenerAction,
-                        "Shadowstride",
-                        "Will use Shadowstride to pull, if selected.\n" +
-                        "Will use an extra Hard Slash before Disesteem.\n" +
-                        "Should start at -0.7 seconds.",
+                        "暗影步",
+                        "如果選擇，將使用暗影步開怪。\n" +
+                        "在掠影的蔑視前會額外使用一次重斬。\n" +
+                        "應該在-0.7秒時開始。",
                         outputValue: (int) PullAction.Shadowstride,
                         descriptionAsTooltip: true);
                     UserConfig.DrawRadioButton(DRK_ST_OpenerAction,
-                        "Hard Slash (Face or Manual Pulling)",
-                        "Will use nothing to pull, if selected, just going straight to Hard Slash.\n" +
-                        "Will use an extra Hard Slash before Disesteem.\n" +
-                        "Should start at 0.0 seconds.",
+                        "重斬 (面向或手動開怪)",
+                        "如果選擇，將不使用任何技能開怪，直接使用重斬。\n" +
+                        "在掠影的蔑視前會額外使用一次重斬。\n" +
+                        "應該在0.0秒時開始。",
                         outputValue: (int) PullAction.HardSlash,
                         descriptionAsTooltip: true);
                     break;
 
                 case CustomComboPreset.DRK_ST_CDs:
                     UserConfig.DrawHorizontalRadioButton(
-                        DRK_ST_CDsBossRequirement, "All Enemies",
-                        "Will use Cooldowns regardless of the type of enemy.",
+                        DRK_ST_CDsBossRequirement, "所有敵人",
+                        "無論敵人型別如何，都會使用冷卻技能。",
                         outputValue: (int) BossRequirement.Off, itemWidth: 125f);
                     UserConfig.DrawHorizontalRadioButton(
-                        DRK_ST_CDsBossRequirement, "Only Bosses",
-                        "Will try to use Cooldowns only when you're in a boss fight.\n" +
+                        DRK_ST_CDsBossRequirement, "僅Boss戰",
+                        "僅在Boss戰中使用冷卻技能。\n" +
                         "(Note: don't rely on this 100%, square sometimes marks enemies inconsistently)",
                         outputValue: (int) BossRequirement.On, itemWidth: 125f);
 
@@ -138,7 +138,7 @@ internal partial class DRK
 
                 case CustomComboPreset.DRK_ST_Sp_Edge:
                     UserConfig.DrawSliderInt(0, 3000, DRK_ST_ManaSpenderPooling,
-                        "Mana to always save for TBN (0 = Use All)",
+                        "為黑盾保留的魔力值（0 = 全部使用）",
                         itemWidth: biggest,
                         sliderIncrement: SliderIncrements.Thousands);
                     UserConfig.DrawDifficultyMultiChoice(
@@ -150,7 +150,7 @@ internal partial class DRK
 
                 case CustomComboPreset.DRK_ST_Sp_ManaOvercap:
                     UserConfig.DrawSliderInt(0, 30, DRK_ST_BurstSoonThreshold,
-                        "Seconds before Burst to save (allowing capping)",
+                        "爆發前多少秒保留（允許溢位）",
                         itemWidth: little, sliderIncrement: SliderIncrements.Fives);
 
                     break;
@@ -172,11 +172,11 @@ internal partial class DRK
 
                     ImGui.Indent();
                     UserConfig.DrawHorizontalRadioButton(
-                        DRK_ST_TBNBossRestriction, "All Enemies",
+                        DRK_ST_TBNBossRestriction, "所有敵人",
                         "Will use The Blackest Night regardless of the type of enemy.",
                         outputValue: (int) BossAvoidance.Off, itemWidth: 125f);
                     UserConfig.DrawHorizontalRadioButton(
-                        DRK_ST_TBNBossRestriction, "Avoid Bosses",
+                        DRK_ST_TBNBossRestriction, "避開Boss戰",
                         "Will try not to use Blackest Night when in a boss fight.\n" +
                         "(Note: don't rely on this 100%, square sometimes marks enemies inconsistently)",
                         outputValue: (int) BossAvoidance.On, itemWidth: 125f);
@@ -217,11 +217,11 @@ internal partial class DRK
 
                     ImGui.Indent();
                     UserConfig.DrawHorizontalRadioButton(
-                        DRK_ST_LivingDeadBossRestriction, "All Enemies",
+                        DRK_ST_LivingDeadBossRestriction, "所有敵人",
                         "Will use Living Dead regardless of the type of enemy.",
                         outputValue: (int) BossAvoidance.Off, itemWidth: 125f);
                     UserConfig.DrawHorizontalRadioButton(
-                        DRK_ST_LivingDeadBossRestriction, "Avoid Bosses",
+                        DRK_ST_LivingDeadBossRestriction, "避開Boss戰",
                         "Will try not to use Living Dead when your target is a boss.\n" +
                         "(Note: don't rely on this 100%, square sometimes marks enemies inconsistently)",
                         outputValue: (int) BossAvoidance.On, itemWidth: 125f);
@@ -278,7 +278,7 @@ internal partial class DRK
 
                 case CustomComboPreset.DRK_AoE_Sp_Flood:
                     UserConfig.DrawSliderInt(0, 3000, DRK_AoE_ManaSpenderPooling,
-                        "Mana to save for TBN (0 = Use All)",
+                        "為TBN保留的魔力值（0 = 全部使用）",
                         itemWidth: biggest,
                         sliderIncrement: SliderIncrements.Thousands);
 
@@ -299,7 +299,7 @@ internal partial class DRK
                         startUsingAtDescriptionPlusDisable,
                         itemWidth: medium, sliderIncrement: SliderIncrements.Fives);
                     UserConfig.DrawSliderInt(1, 10, DRK_AoE_ReprisalEnemyCount,
-                        "# enemies in range",
+                        "# 範圍內敵人",
                         itemWidth: little, sliderIncrement: SliderIncrements.Ones);
 
                     break;
@@ -319,7 +319,7 @@ internal partial class DRK
 
                 case CustomComboPreset.DRK_AoE_Mit_ArmsLength:
                     UserConfig.DrawSliderInt(1, 10, DRK_AoE_ArmsLengthEnemyCount,
-                        "# enemies in range",
+                        "# 範圍內敵人",
                         itemWidth: little, sliderIncrement: SliderIncrements.Ones);
 
                     break;
@@ -379,7 +379,7 @@ internal partial class DRK
 
                 case CustomComboPreset.DRK_Mit_Oblation:
                     UserConfig.DrawSliderInt(0, 1, DRK_Mit_Oblation_Charges,
-                        "How many charges to keep ready? (0 = Use All)",
+                        "保留多少個充能？（0 = 全部使用）",
                         itemWidth: little, sliderIncrement: SliderIncrements.Ones);
 
                     UserConfig.DrawPriorityInput(DRK_Mit_Priorities,
@@ -399,20 +399,20 @@ internal partial class DRK
                     ImGui.Indent();
                     UserConfig.DrawHorizontalRadioButton(
                         DRK_Mit_DarkMissionary_PartyRequirement,
-                        "Require party",
-                        "Will not use Dark Missionary unless there are 2 or more party members.",
+                        "需要隊伍",
+                        "除非有2個或更多隊伍成員，否則不會使用暗黑佈道。",
                         outputValue: (int) PartyRequirement.Yes, itemWidth: medium);
                     UserConfig.DrawHorizontalRadioButton(
                         DRK_Mit_DarkMissionary_PartyRequirement,
-                        "Use Always",
-                        "Will not require a party for Dark Missionary.",
+                        "總是使用",
+                        "暗黑佈道不要求有隊伍。",
                         outputValue: (int) PartyRequirement.No, itemWidth: medium);
                     ImGui.Unindent();
 
                     ImGui.NewLine();
                     UserConfig.DrawPriorityInput(DRK_Mit_Priorities,
                         numberMitigationOptions, 3,
-                        "Dark Missionary Priority:");
+                        "暗黑佈道優先順序：");
 
                     break;
 
@@ -423,37 +423,37 @@ internal partial class DRK
 
                     UserConfig.DrawPriorityInput(DRK_Mit_Priorities,
                         numberMitigationOptions, 4,
-                        "Rampart Priority:");
+                        "鐵壁優先順序：");
 
                     break;
 
                 case CustomComboPreset.DRK_Mit_DarkMind:
                     UserConfig.DrawPriorityInput(DRK_Mit_Priorities,
                         numberMitigationOptions, 5,
-                        "Dark Mind Priority:");
+                        "棄暗投明優先順序：");
 
                     break;
 
                 case CustomComboPreset.DRK_Mit_ArmsLength:
                     ImGui.Indent();
                     UserConfig.DrawHorizontalRadioButton(
-                        DRK_Mit_ArmsLength_Boss, "All Enemies",
+                        DRK_Mit_ArmsLength_Boss, "所有敵人",
                         "Will use Arm's Length regardless of the type of enemy.",
                         outputValue: (int) BossAvoidance.Off, itemWidth: 125f);
                     UserConfig.DrawHorizontalRadioButton(
-                        DRK_Mit_ArmsLength_Boss, "Avoid Bosses",
+                        DRK_Mit_ArmsLength_Boss, "避開Boss戰",
                         "Will try not to use Arm's Length when in a boss fight.",
                         outputValue: (int) BossAvoidance.On, itemWidth: 125f);
                     ImGui.Unindent();
 
                     ImGui.NewLine();
                     UserConfig.DrawSliderInt(0, 3, DRK_Mit_ArmsLength_EnemyCount,
-                        "How many enemies should be nearby? (0 = No Requirement)",
+                        "附近有多少敵人？（0 = 無要求）",
                         itemWidth: little, sliderIncrement: SliderIncrements.Ones);
 
                     UserConfig.DrawPriorityInput(DRK_Mit_Priorities,
                         numberMitigationOptions, 6,
-                        "Arm's Length Priority:");
+                        "青疏自行優先順序：");
 
                     break;
 
@@ -464,7 +464,7 @@ internal partial class DRK
 
                     UserConfig.DrawPriorityInput(DRK_Mit_Priorities,
                         numberMitigationOptions, 7,
-                        "Shadow Wall / Vigil Priority:");
+                        "暗影牆 / 暗影衛士優先順序：");
 
                     break;
 
@@ -475,18 +475,18 @@ internal partial class DRK
                 case CustomComboPreset.DRK_Retarget_TBN_TT:
                     ImGui.Indent(34f.Scale());
                     ImGuiEx.TextWrapped(ImGuiColors.DalamudGrey,
-                        "Note: If you are Off-Tanking, and want to use this ability on yourself, the expectation would be that you do so via the One-Button Mitigation Feature or the Mitigation options in your rotation.\n" +
-                        "If you don't, it would go to the main tank.\n" +
-                        "If you don't use those Features for your personal mitigation, you may not want to enable this.");
+                        "注意：如果你是副T，並且希望將該技能用於自己，建議透過一鍵減傷功能或你的迴圈中的減傷選項來實現。\n" +
+                        "否則，該技能會施放到主T身上。\n" +
+                        "如果你不使用這些功能來進行個人減傷，建議不要啟用此選項。");
                     ImGui.Unindent(34f.Scale());
                     break;
 
                 case CustomComboPreset.DRK_Retarget_Oblation_TT:
                     ImGui.Indent(34f.Scale());
                     ImGuiEx.TextWrapped(ImGuiColors.DalamudGrey,
-                        "Note: If you are Off-Tanking, and want to use this ability on yourself, the expectation would be that you do so via the One-Button Mitigation Feature or the Mitigation options in your rotation.\n" +
-                        "If you don't, it would go to the main tank.\n" +
-                        "If you don't use those Features for your personal mitigation, you may not want to enable this.");
+                        "注意：如果你是副T，並且希望將該技能用於自己，建議透過一鍵減傷功能或你的迴圈中的減傷選項來實現。\n" +
+                        "否則，該技能會施放到主T身上。\n" +
+                        "如果你不使用這些功能來進行個人減傷，建議不要啟用此選項。");
                     ImGui.Unindent(34f.Scale());
                     break;
 
@@ -513,11 +513,11 @@ internal partial class DRK
 
         /// Bar Description for HP% to stop using
         private const string stopUsingAtDescription =
-            "Target HP% to stop using (0 = Use Always)";
+            "目標血量百分比閾值（0 = 總是使用）";
 
         /// Bar Description for HP% to start using
         private const string startUsingAtDescription =
-            "HP% to use at or below";
+            "血量百分比閾值（0 = 總是使用）";
 
         /// Bar Description for HP% to start using plus disable text
         /// <remarks>
@@ -525,14 +525,14 @@ internal partial class DRK
         ///     and the option is effectively disabled at <c>100</c>.
         /// </remarks>
         private const string startUsingAtDescriptionPlusDisable =
-            "HP% to use at or below (100 = Disable check)";
+            "血量百分比閾值（100 = 禁用檢查）";
 
         /// Bar Description for # to start using (above)
         private const string startUsingAboveDescription =
-            "# to use at or above";
+            "# 血量百分比閾值（0 = 總是使用）";
 
         private const string chargesToKeepDescription =
-            "# charges to keep (0 = Use All)";
+            "# 充能保留（0 = 全部使用）";
 
         /// <summary>
         ///     Whether abilities should be restricted to bosses or not.

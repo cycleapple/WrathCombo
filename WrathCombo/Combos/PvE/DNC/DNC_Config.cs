@@ -83,7 +83,7 @@ internal partial class DNC
             var pos = ImGui.GetCursorPos();
 
             // Determine which recommendation text to show
-            const string rec = "(Recommended)";
+            const string rec = "（推薦）";
             var recTriple = GCDValue is GCDRange.Perfect ? rec : "";
             var recHold = GCDValue is not GCDRange.Perfect ? rec : "";
 
@@ -119,15 +119,15 @@ internal partial class DNC
 
                     ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.DalamudYellow);
                     ImGui.TextWrapped(
-                        "NO SUPPORT is provided for setting up this feature!");
+                        "此功能的設定不提供支援！");
                     ImGui.PopStyleColor();
 
                     ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.DalamudGrey);
                     ImGui.TextWrapped(
-                        "\nYou can change the respective actions by inputting action IDs below for each dance step." +
-                        "\nThe defaults are Cascade, Flourish, Fan Dance, and Fan Dance II." +
-                        "\nIf set to 0, they will reset to these actions." +
-                        "\n(You can get Action IDs with Garland Tools by searching for the action and clicking the cog.)");
+                        "\n你可以透過為每個舞步輸入技能ID來更改相應的動作。" +
+                        "\n預設值為瀑瀉、百花爭豔、扇舞·序和扇舞·破。" +
+                        "\n如果設定為0，它們將重置為這些技能。" +
+                        "\n（你可以透過Garland Tools搜尋技能並點選齒輪圖示獲取技能ID。）");
                     ImGui.PopStyleColor();
 
                     int[] actions = Service.Configuration.DancerDanceCompatActionIDs
@@ -136,26 +136,26 @@ internal partial class DNC
                     bool inputChanged = false;
                     ImGuiEx.SetNextItemWidthScaled(50);
                     inputChanged |= ImGui.InputInt(
-                        "(Red) Emboite replacement Action ID",
+                        "（紅色）薔薇曲腳步 替換技能ID",
                         ref actions[0], 0);
                     ImGuiEx.SetNextItemWidthScaled(50);
                     inputChanged |= ImGui.InputInt(
-                        "(Blue) Entrechat replacement Action ID",
+                        "（藍色）小鳥交疊跳 替換技能ID",
                         ref actions[1], 0);
                     ImGuiEx.SetNextItemWidthScaled(50);
                     inputChanged |= ImGui.InputInt(
-                        "(Green) Jete replacement Action ID",
+                        "（綠色）綠葉小踢腿 替換技能ID",
                         ref actions[2], 0);
                     ImGuiEx.SetNextItemWidthScaled(50);
                     inputChanged |= ImGui.InputInt(
-                        "(Yellow) Pirouette replacement Action ID",
+                        "（黃色）金冠趾尖轉 替換技能ID",
                         ref actions[3], 0);
 
                     ImGuiEx.Spacing(new Vector2(0, 12));
 
                     ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.DalamudYellow);
                     ImGui.TextWrapped(
-                        "This WILL let you set up a conflict!");
+                        "這可能會導致衝突！");
                     ImGui.PopStyleColor();
                     ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.DalamudGrey);
                     ImGui.TextWrapped("請確認所設定的技能不會與其他正在使用的連段衝突，或啟用下方功能！");
@@ -179,7 +179,7 @@ internal partial class DNC
                     ImGui.Indent();
                     ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.DalamudGrey);
                     ImGui.TextWrapped(
-                        "Opener variations:     (hover each for more info)");
+                        "起手式變體：     （懸停以檢視更多資訊）");
                     ImGui.PopStyleColor();
                     ImGui.Unindent();
 
@@ -208,11 +208,11 @@ internal partial class DNC
                     ImGui.Indent();
                     ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.DalamudGrey);
                     ImGui.TextWrapped(
-                        "Opener options:");
+                        "起手式選項：");
                     ImGui.PopStyleColor();
 
                     UserConfig.DrawAdditionalBoolChoice(DNC_ST_OpenerOption_Peloton,
-                        $"Include {Peloton.ActionName()}", "");
+                        $"包含 {Peloton.ActionName()}", "");
 
                     UserConfig.DrawBossOnlyChoice(DNC_ST_OpenerDifficulty, "選擇要使用此起手式的內容類型：");
                     ImGui.Unindent();

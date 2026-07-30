@@ -215,7 +215,7 @@ namespace WrathCombo.Window.Tabs
 
                 #region Throttle
 
-                var len = ImGui.CalcTextSize("milliseconds").X;
+                var len = ImGui.CalcTextSize("\u6beb\u79d2").X;
 
                 ImGui.PushItemWidth(75);
                 var throttle = Service.Configuration.Throttle;
@@ -405,10 +405,10 @@ namespace WrathCombo.Window.Tabs
                         healStackText += "UI-MouseOver Target" + nextStackItemMarker;
                     if (Service.Configuration.UseFieldMouseoverOverridesInDefaultHealStack)
                         healStackText += "Field-MouseOver Target" + nextStackItemMarker;
-                    healStackText += "Soft Target" + nextStackItemMarker;
+                    healStackText += "\u8edf\u76ee\u6a19" + nextStackItemMarker;
                     healStackText += "Hard Target" + nextStackItemMarker;
                     if (Service.Configuration.UseFocusTargetOverrideInDefaultHealStack)
-                        healStackText += "Focus Target" + nextStackItemMarker;
+                        healStackText += "\u7126\u9ede\u76ee\u6a19" + nextStackItemMarker;
                     if (Service.Configuration.UseLowestHPOverrideInDefaultHealStack)
                         healStackText += "Lowest HP% Ally" + nextStackItemMarker;
                     healStackText += "Self";
@@ -650,7 +650,7 @@ namespace WrathCombo.Window.Tabs
                         DebugFile.MakeDebugFile(allJobs: true);
                 }
 
-                ImGuiComponents.HelpMarker("Will generate a debug file on your desktop.\nUseful to give developers to help troubleshoot issues.\nThe same as using the following command: /wrath debug");
+                ImGuiComponents.HelpMarker("\u5c07\u5728\u4f60\u7684\u684c\u9762\u751f\u6210\u4e00\u500b\u9664\u932f\u6a94\u6848\u3002\n\u53ef\u63d0\u4f9b\u7d66\u958b\u767c\u8005\u4ee5\u5354\u52a9\u6392\u67e5\u554f\u984c\u3002\n\u7b49\u540c\u65bc\u4f7f\u7528\u4ee5\u4e0b\u547d\u4ee4\uff1a/wrath debug");
 
                 #endregion
 

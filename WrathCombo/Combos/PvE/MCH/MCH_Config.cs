@@ -31,7 +31,7 @@ internal partial class MCH
                         "All content", $"Uses {BarrelStabilizer.ActionName()} regardless of content.", 0);
 
                     DrawHorizontalRadioButton(MCH_ST_Adv_BarrelStabiliser_SubOption,
-                        "Boss encounters Only", $"Only uses {BarrelStabilizer.ActionName()} when in Boss encounters.", 1);
+                        "僅在Boss戰中使用 The Balance 邏輯", $"Only uses {BarrelStabilizer.ActionName()} when in Boss encounters.", 1);
                     ImGui.Unindent();
                     break;
 
@@ -41,7 +41,7 @@ internal partial class MCH
                         "All content", $"Uses {FullMetalField.ActionName()} regardless of content.", 0);
 
                     DrawHorizontalRadioButton(MCH_ST_Adv_FullMetalMachinist_SubOption,
-                        "Boss encounters Only", $"Only uses {FullMetalField.ActionName()} when in Boss encounters.", 1);
+                        "僅在Boss戰中使用 The Balance 邏輯", $"僅在Boss戰中使用{AutomatonQueen.ActionName()}邏輯。", 1);
                     ImGui.Unindent();
                     break;
 
@@ -64,7 +64,7 @@ internal partial class MCH
                         "All content", $"Uses {Excavator.ActionName()} logic regardless of content.", 0);
 
                     DrawHorizontalRadioButton(MCH_ST_Adv_Excavator_SubOption,
-                        "Boss encounters Only", $"Only uses {Excavator.ActionName()} logic when in Boss encounters.", 1);
+                        "僅在Boss戰中使用 The Balance 邏輯", $"Only uses {Excavator.ActionName()} logic when in Boss encounters.", 1);
                     break;
 
                 case CustomComboPreset.MCH_ST_Adv_GaussRicochet:
@@ -74,7 +74,7 @@ internal partial class MCH
 
                 case CustomComboPreset.MCH_ST_Adv_Reassemble:
                     DrawSliderInt(0, 1, MCH_ST_ReassemblePool,
-                        "Number of Charges to Save for Manual Use");
+                        "保留多少充能次數供手動使用");
 
                     DrawHorizontalMultiChoice(MCH_ST_Reassembled, $"Use on {Excavator.ActionName()}", "", 5, 0);
                     DrawHorizontalMultiChoice(MCH_ST_Reassembled, $"Use on {Chainsaw.ActionName()}", "", 5, 1);
@@ -96,7 +96,7 @@ internal partial class MCH
                 //AoE
                 case CustomComboPreset.MCH_AoE_Adv_Reassemble:
                     DrawSliderInt(0, 2, MCH_AoE_ReassemblePool,
-                        "Number of Charges to Save for Manual Use");
+                        "保留多少充能次數供手動使用");
 
                     DrawHorizontalMultiChoice(MCH_AoE_Reassembled, $"Use on {SpreadShot.ActionName()}/{Scattergun.ActionName()}", "", 4, 0);
                     DrawHorizontalMultiChoice(MCH_AoE_Reassembled, $"Use on {AirAnchor.ActionName()}", "", 4, 1);
@@ -116,7 +116,7 @@ internal partial class MCH
 
                 case CustomComboPreset.MCH_AoE_Adv_Queen:
                     DrawSliderInt(50, 100, MCH_AoE_TurretUsage,
-                        "Battery threshold", sliderIncrement: 5);
+                        "\u96fb\u6c60\u95be\u503c", sliderIncrement: 5);
                     break;
 
                 //Variant

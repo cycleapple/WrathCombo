@@ -15,14 +15,14 @@ internal partial class RPR
                 case CustomComboPreset.RPR_ST_Opener:
 
                     if (DrawHorizontalRadioButton(RPR_Opener_StartChoice,
-                        "Normal Opener", $"Starts opener with {Harpe.ActionName()}", 0))
+                        "標準起手", $"使用{Harpe.ActionName()}開始起手", 0))
                     {
                         if (!CustomComboFunctions.InCombat())
                             Opener().OpenerStep = 1;
                     }
 
                     DrawHorizontalRadioButton(RPR_Opener_StartChoice,
-                        "Early Opener", $"Starts opener with {ShadowOfDeath.ActionName()} instead, skipping {Harpe.ActionName()}", 1);
+                        "提前起手", $"使用{ShadowOfDeath.ActionName()}開始起手，跳過{Harpe.ActionName()}", 1);
 
                     ImGui.Spacing();
 
@@ -38,16 +38,16 @@ internal partial class RPR
                     break;
 
                 case CustomComboPreset.RPR_ST_AdvancedMode:
-                    DrawHorizontalRadioButton(RPR_Positional, "Rear First",
+                    DrawHorizontalRadioButton(RPR_Positional, "\u80cc\u9762\u512a\u5148",
                         $"First positional: {Gallows.ActionName()}.", 0);
 
-                    DrawHorizontalRadioButton(RPR_Positional, "Flank First",
-                        $"First positional: {Gibbet.ActionName()}.", 1);
+                    DrawHorizontalRadioButton(RPR_Positional, "側面優先",
+                        $"第一個位置技：{Gibbet.ActionName()}", 1);
                     break;
 
                 case CustomComboPreset.RPR_ST_SoD:
                     DrawSliderInt(0, 10, RPR_SoDRefreshRange,
-                        $"Seconds remaining before refreshing {ShadowOfDeath.ActionName()}.\nRecommended is 6.");
+                        $"續{ShadowOfDeath.ActionName()}前剩餘秒數。\n推薦值為6。");
 
                     DrawSliderInt(0, 100, RPR_SoDThreshold,
                         $"Set a HP% Threshold for when {ShadowOfDeath.ActionName()} will not be automatically applied to the target.");
@@ -55,12 +55,12 @@ internal partial class RPR
 
                 case CustomComboPreset.RPR_ST_TrueNorthDynamic:
                     DrawAdditionalBoolChoice(RPR_ST_TrueNorthDynamic_HoldCharge,
-                        "Hold True North for Gluttony Option", "Will hold the last charge of True North for use with Gluttony, even when out of position for Gibbet/Gallows.");
+                        "為暴食保留真北", "為暴食保留最後一層真北，即使絞決/縊殺位置不正確時也會保留");
                     break;
 
                 case CustomComboPreset.RPR_ST_RangedFiller:
                     DrawAdditionalBoolChoice(RPR_ST_RangedFillerHarvestMoon,
-                        "Add Harvest Moon", "Adds Harvest Moon if available, when outside of melee range. Will not override Communio.");
+                        "新增收穫月", "在近戰範圍外時新增收穫月（如果可用）。不會覆蓋團契");
                     break;
 
                 case CustomComboPreset.RPR_AoE_WoD:
@@ -86,21 +86,21 @@ internal partial class RPR
 
                 case CustomComboPreset.RPR_Soulsow:
                     DrawHorizontalMultiChoice(RPR_SoulsowOptions,
-                        $"{Harpe.ActionName()}", $"Adds {Soulsow.ActionName()} to {Harpe.ActionName()}.",
+                        $"{Harpe.ActionName()}", $"將{Soulsow.ActionName()}新增到{Harpe.ActionName()}",
                         5, 0);
 
                     DrawHorizontalMultiChoice(RPR_SoulsowOptions,
-                        $"{Slice.ActionName()}", $"Adds {Soulsow.ActionName()} to {Slice.ActionName()}.",
+                        $"{Slice.ActionName()}", $"將{Soulsow.ActionName()}新增到{Slice.ActionName()}",
                         5, 1);
 
                     DrawHorizontalMultiChoice(RPR_SoulsowOptions,
-                        $"{SpinningScythe.ActionName()}", $"Adds {Soulsow.ActionName()} to {SpinningScythe.ActionName()}", 5, 2);
+                        $"{SpinningScythe.ActionName()}", $"將{Soulsow.ActionName()}新增到{SpinningScythe.ActionName()}", 5, 2);
 
                     DrawHorizontalMultiChoice(RPR_SoulsowOptions,
-                        $"{ShadowOfDeath.ActionName()}", $"Adds {Soulsow.ActionName()} to {ShadowOfDeath.ActionName()}.", 5, 3);
+                        $"{ShadowOfDeath.ActionName()}", $"將{Soulsow.ActionName()}新增到{ShadowOfDeath.ActionName()}", 5, 3);
 
                     DrawHorizontalMultiChoice(RPR_SoulsowOptions,
-                        $"{BloodStalk.ActionName()}", $"Adds {Soulsow.ActionName()} to {BloodStalk.ActionName()}.", 5, 4);
+                        $"{BloodStalk.ActionName()}", $"將{Soulsow.ActionName()}新增到{BloodStalk.ActionName()}", 5, 4);
                     break;
 
                 case CustomComboPreset.RPR_Variant_Cure:

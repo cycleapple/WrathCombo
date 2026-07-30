@@ -103,7 +103,7 @@ internal partial class PLD
                 case CustomComboPreset.PLD_ST_AdvancedMode_Sheltron:
                     UserConfig.DrawSliderInt(50, 100, PLD_ST_SheltronOption, "Oath Gauge", 200, 5);
 
-                    UserConfig.DrawHorizontalRadioButton(PLD_ST_Sheltron_SubOption, "All Enemies",
+                    UserConfig.DrawHorizontalRadioButton(PLD_ST_Sheltron_SubOption, "\u6240\u6709\u6575\u4eba",
                         "Uses Sheltron regardless of targeted enemy type.", 1);
 
                     UserConfig.DrawHorizontalRadioButton(PLD_ST_Sheltron_SubOption, "Bosses Only",
@@ -114,7 +114,7 @@ internal partial class PLD
                 case CustomComboPreset.PLD_AoE_AdvancedMode_Sheltron:
                     UserConfig.DrawSliderInt(50, 100, PLD_AoE_SheltronOption, "Oath Gauge", 200, 5);
 
-                    UserConfig.DrawHorizontalRadioButton(PLD_AoE_Sheltron_SubOption, "All Enemies",
+                    UserConfig.DrawHorizontalRadioButton(PLD_AoE_Sheltron_SubOption, "\u6240\u6709\u6575\u4eba",
                         "Uses Sheltron regardless of targeted enemy type.", 1);
 
                     UserConfig.DrawHorizontalRadioButton(PLD_AoE_Sheltron_SubOption, "Bosses Only",
@@ -126,7 +126,7 @@ internal partial class PLD
                 case CustomComboPreset.PLD_ST_AdvancedMode_Rampart:
                     UserConfig.DrawSliderInt(1, 100, PLD_ST_Rampart_Health, "Player HP%", 200);
 
-                    UserConfig.DrawHorizontalRadioButton(PLD_ST_Rampart_SubOption, "All Enemies",
+                    UserConfig.DrawHorizontalRadioButton(PLD_ST_Rampart_SubOption, "\u6240\u6709\u6575\u4eba",
                         "Uses Rampart regardless of targeted enemy type.", 1);
 
                     UserConfig.DrawHorizontalRadioButton(PLD_ST_Rampart_SubOption, "Bosses Only",
@@ -137,7 +137,7 @@ internal partial class PLD
                 case CustomComboPreset.PLD_AoE_AdvancedMode_Rampart:
                     UserConfig.DrawSliderInt(1, 100, PLD_AoE_Rampart_Health, "Player HP%", 200);
 
-                    UserConfig.DrawHorizontalRadioButton(PLD_AoE_Rampart_SubOption, "All Enemies",
+                    UserConfig.DrawHorizontalRadioButton(PLD_AoE_Rampart_SubOption, "\u6240\u6709\u6575\u4eba",
                         "Uses Rampart regardless of targeted enemy type.", 1);
 
                     UserConfig.DrawHorizontalRadioButton(PLD_AoE_Rampart_SubOption, "Bosses Only",
@@ -149,7 +149,7 @@ internal partial class PLD
                 case CustomComboPreset.PLD_ST_AdvancedMode_Sentinel:
                     UserConfig.DrawSliderInt(1, 100, PLD_ST_Sentinel_Health, "Player HP%", 200);
 
-                    UserConfig.DrawHorizontalRadioButton(PLD_ST_Sentinel_SubOption, "All Enemies",
+                    UserConfig.DrawHorizontalRadioButton(PLD_ST_Sentinel_SubOption, "\u6240\u6709\u6575\u4eba",
                         "Uses Sentinel regardless of targeted enemy type.", 1);
 
                     UserConfig.DrawHorizontalRadioButton(PLD_ST_Sentinel_SubOption, "Bosses Only",
@@ -160,7 +160,7 @@ internal partial class PLD
                 case CustomComboPreset.PLD_AoE_AdvancedMode_Sentinel:
                     UserConfig.DrawSliderInt(1, 100, PLD_AoE_Sentinel_Health, "Player HP%", 200);
 
-                    UserConfig.DrawHorizontalRadioButton(PLD_AoE_Sentinel_SubOption, "All Enemies",
+                    UserConfig.DrawHorizontalRadioButton(PLD_AoE_Sentinel_SubOption, "\u6240\u6709\u6575\u4eba",
                         "Uses Sentinel regardless of targeted enemy type.", 1);
 
                     UserConfig.DrawHorizontalRadioButton(PLD_AoE_Sentinel_SubOption, "Bosses Only",
@@ -172,7 +172,7 @@ internal partial class PLD
                 case CustomComboPreset.PLD_ST_AdvancedMode_HallowedGround:
                     UserConfig.DrawSliderInt(1, 100, PLD_ST_HallowedGround_Health, "Player HP%", 200);
 
-                    UserConfig.DrawHorizontalRadioButton(PLD_ST_HallowedGround_SubOption, "All Enemies",
+                    UserConfig.DrawHorizontalRadioButton(PLD_ST_HallowedGround_SubOption, "\u6240\u6709\u6575\u4eba",
                         "Uses Hallowed Ground regardless of targeted enemy type.", 1);
 
                     UserConfig.DrawHorizontalRadioButton(PLD_ST_HallowedGround_SubOption, "Bosses Only",
@@ -183,7 +183,7 @@ internal partial class PLD
                 case CustomComboPreset.PLD_AoE_AdvancedMode_HallowedGround:
                     UserConfig.DrawSliderInt(1, 100, PLD_AoE_HallowedGround_Health, "Player HP%", 200);
 
-                    UserConfig.DrawHorizontalRadioButton(PLD_AoE_HallowedGround_SubOption, "All Enemies",
+                    UserConfig.DrawHorizontalRadioButton(PLD_AoE_HallowedGround_SubOption, "\u6240\u6709\u6575\u4eba",
                         "Uses Hallowed Ground regardless of targeted enemy type.", 1);
 
                     UserConfig.DrawHorizontalRadioButton(PLD_AoE_HallowedGround_SubOption, "Bosses Only",
@@ -198,7 +198,7 @@ internal partial class PLD
                     UserConfig.DrawHorizontalRadioButton(PLD_Intervene_MeleeOnly, "Melee Range",
                         "Uses Intervene while within melee range.\n- May result in minor movement.", 1);
 
-                    UserConfig.DrawHorizontalRadioButton(PLD_Intervene_MeleeOnly, "No Movement",
+                    UserConfig.DrawHorizontalRadioButton(PLD_Intervene_MeleeOnly, "\u4e0d\u79fb\u52d5",
                         "Only uses Intervene when it would not result in movement.\n- Requires target to be within zero distance.", 2);
 
                     break;
@@ -209,7 +209,7 @@ internal partial class PLD
                     UserConfig.DrawHorizontalRadioButton(PLD_AoE_Intervene_MeleeOnly, "Melee Range",
                         "Uses Intervene while within melee range.\n- May result in minor movement.", 1);
 
-                    UserConfig.DrawHorizontalRadioButton(PLD_AoE_Intervene_MeleeOnly, "No Movement",
+                    UserConfig.DrawHorizontalRadioButton(PLD_AoE_Intervene_MeleeOnly, "\u4e0d\u79fb\u52d5",
                         "Only uses Intervene when it would not result in movement.\n- Requires target to be within zero distance.", 2);
 
                     break;
@@ -292,10 +292,10 @@ internal partial class PLD
                 case CustomComboPreset.PLD_RetargetSheltron_TT:
                     ImGui.Indent();
                     ImGuiEx.TextWrapped(ImGuiColors.DalamudGrey,
-                        "Note: If you are Off-Tanking, and want to use Sheltron on yourself, the expectation would be that you do so via the One-Button Mitigation Feature or the Mitigation options in your rotation.\n" +
-                        "You could also mouseover yourself in the party to use Sheltron in this case.\n" +
-                        "If you don't, intervention would replace the combo, and it would go to the main tank.\n" +
-                        "If you don't use those Features for your personal mitigation, you may not want to enable this.");
+                        "注意：如果你是副坦，並希望對自己使用盾陣，建議透過“一鍵減傷”功能或迴圈中的盾陣選項來實現。\n" +
+                        "你也可以在隊伍列表中滑鼠懸停自己來釋放盾陣。\n" +
+                        "如果不這樣做，干預將會替換連擊，並施放到主坦克身上。\n" +
+                        "如果你不打算用這些功能來進行個人減傷，建議不要啟用此選項。");
                     ImGui.Unindent();
                     break;
                 case CustomComboPreset.PLD_RetargetShieldBash:
@@ -373,7 +373,7 @@ internal partial class PLD
                 case CustomComboPreset.PLD_Mit_ArmsLength:
                     ImGui.Indent();
                     UserConfig.DrawHorizontalRadioButton(
-                        PLD_Mit_ArmsLength_Boss, "All Enemies",
+                        PLD_Mit_ArmsLength_Boss, "\u6240\u6709\u6575\u4eba",
                         "Will use Arm's Length regardless of the type of enemy.",
                         outputValue: (int)BossAvoidance.Off, itemWidth: 125f);
                     UserConfig.DrawHorizontalRadioButton(

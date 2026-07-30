@@ -812,8 +812,8 @@ namespace WrathCombo.Window.Functions
             }
 
             DrawHorizontalBoolRadioButton(
-                config, "All Content",
-                "Applies to all content in the game.",
+                config, "\u5168\u90e8\u5167\u5bb9",
+                "\u9069\u7528\u65bc\u904a\u6232\u4e2d\u7684\u6240\u6709\u5167\u5bb9\u3002",
                 choice: 0,
                 descriptionColor: ImGuiColors.DalamudYellow
             );
@@ -857,8 +857,8 @@ namespace WrathCombo.Window.Functions
             }
 
             DrawHorizontalRadioButton(
-                config, "All Content",
-                "Applies to all content in the game.",
+                config, "\u5168\u90e8\u5167\u5bb9",
+                "\u9069\u7528\u65bc\u904a\u6232\u4e2d\u7684\u6240\u6709\u5167\u5bb9\u3002",
                 outputValue: 0,
                 descriptionColor: ImGuiColors.DalamudYellow
             );
@@ -897,7 +897,7 @@ namespace WrathCombo.Window.Functions
                 {
                     if (customLabel.IsNullOrEmpty())
                     {
-                        ImGui.TextUnformatted($"Priority: ");
+                        ImGui.TextUnformatted($"\u512a\u5148\u9806\u5e8f\uff1a");
                     }
                     else
                     {
@@ -1252,8 +1252,8 @@ namespace WrathCombo.Window.Functions
                     @"(?<=[a-z])(?=[A-Z0-9])", " "),
             };
 
-            name = name.Replace(" If Missing HP", " (If Missing HP)");
-            name = name.Replace(" If None Alive", " (If None Alive)");
+            name = name.Replace(" If Missing HP", "（HP 未滿時）");
+            name = name.Replace(" If None Alive", "（無存活目標時）");
             if (thisIsForRaiseStack)
                 name = name.Replace("Dead ", "");
 

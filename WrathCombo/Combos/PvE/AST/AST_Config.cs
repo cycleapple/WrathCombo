@@ -108,7 +108,7 @@ internal partial class AST
                     break;
 
                 case CustomComboPreset.AST_DPS_Lucid:
-                    DrawSliderInt(4000, 9500, AST_ST_DPS_LucidDreaming, "Set value for your MP to be at or under for this feature to work", 150, Hundreds);
+                    DrawSliderInt(4000, 9500, AST_ST_DPS_LucidDreaming, "設定MP閾值，當MP達到或低於此值時啟用此功能", 150, Hundreds);
                     break;
 
                 case CustomComboPreset.AST_ST_DPS_CombustUptime:
@@ -116,10 +116,10 @@ internal partial class AST
                     ImGui.Indent();
                     ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
                     DrawHorizontalRadioButton(AST_ST_DPS_CombustSubOption,
-                        "Non-Bosses", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
+                        "\u5c0f\u602a", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
                     DrawHorizontalRadioButton(AST_ST_DPS_CombustSubOption,
-                        "All Enemies", "Applies the HP check above to all enemies.", 1);
-                    DrawRoundedSliderFloat(0, 4, AST_ST_DPS_CombustUptime_Threshold, "Seconds remaining before reapplying the DoT. Set to Zero to disable this check.", digits: 1);
+                        "\u6240\u6709\u6575\u4eba", "\u5c07\u4e0a\u8ff0 HP \u6aa2\u67e5\u61c9\u7528\u65bc\u6240\u6709\u6575\u4eba\u3002", 1);
+                    DrawRoundedSliderFloat(0, 4, AST_ST_DPS_CombustUptime_Threshold, "剩餘多少秒應用DoT。設定為零禁用此檢測。", digits: 1);
                     ImGui.Unindent();
                     break;
 
@@ -128,9 +128,9 @@ internal partial class AST
                     ImGui.Indent();
                     ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
                     DrawHorizontalRadioButton(AST_ST_DPS_DivinationSubOption,
-                        "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
+                        "\u5c0f\u602a", "\u50c5\u5c0d\u975e\u9996\u9818\u6575\u4eba\u61c9\u7528\u4e0a\u8ff0 HP \u6aa2\u67e5\u3002", 0);
                     DrawHorizontalRadioButton(AST_ST_DPS_DivinationSubOption,
-                        "All Enemies", "Applies the HP check above to all enemies.", 1);
+                        "\u6240\u6709\u6575\u4eba", "\u5c07\u4e0a\u8ff0 HP \u6aa2\u67e5\u61c9\u7528\u65bc\u6240\u6709\u6575\u4eba\u3002", 1);
                     ImGui.Unindent();
                     break;
 
@@ -139,22 +139,22 @@ internal partial class AST
                     break;
                 
                 case CustomComboPreset.AST_DPS_AutoDraw:
-                    DrawAdditionalBoolChoice(AST_ST_DPS_OverwriteHealCards, "Overwrite Non-DPS Cards", "Will draw even if you have healing cards remaining.");
+                    DrawAdditionalBoolChoice(AST_ST_DPS_OverwriteHealCards, "\u8986\u84cb\u975e DPS \u5361\u724c", "\u5373\u4f7f\u9084\u6709\u6cbb\u7642\u5361\u5269\u9918\uff0c\u4e5f\u6703\u57f7\u884c\u62bd\u5361\u3002");
                     break;
                 
                 case CustomComboPreset.AST_ST_DPS_StellarDetonation:
                     DrawHorizontalRadioButton(AST_ST_DPS_StellarDetonation_SubOption,
-                        "Non-boss Encounters Only", $"Non-Boss Encounters only", 0);
+                        "\u50c5\u9650\u975e\u9996\u9818\u6230", $"Non-Boss Encounters only", 0);
 
                     DrawHorizontalRadioButton(AST_ST_DPS_StellarDetonation_SubOption,
-                        "All Content", $"All Content", 1);
+                        "\u5168\u90e8\u5167\u5bb9", $"\u5168\u90e8\u5167\u5bb9", 1);
                     
                     DrawSliderInt(0, 100, AST_ST_DPS_StellarDetonation_Threshold,
-                        $"Use when Target is at or below HP% (0% = Never Detonate Early, 100% = Detonate ASAP).");
+                        $"\u7576\u76ee\u6a19 HP% \u5c0f\u65bc\u7b49\u65bc\u8a72\u503c\u6642\u4f7f\u7528\uff080% = \u4e0d\u63d0\u524d\u5f15\u7206\uff0c100% = \u7acb\u5373\u5f15\u7206\uff09\u3002");
                     break;
                 
                 case CustomComboPreset.AST_AOE_Lucid:
-                    DrawSliderInt(4000, 9500, AST_AOE_LucidDreaming, "Set value for your MP to be at or under for this feature to work", 150, Hundreds);
+                    DrawSliderInt(4000, 9500, AST_AOE_LucidDreaming, "設定MP閾值，當MP達到或低於此值時啟用此功能", 150, Hundreds);
                     break;
 
                 case CustomComboPreset.AST_AOE_Divination:
@@ -162,9 +162,9 @@ internal partial class AST
                     ImGui.Indent();
                     ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
                     DrawHorizontalRadioButton(AST_AOE_DivinationSubOption,
-                        "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
+                        "\u5c0f\u602a", "\u50c5\u5c0d\u975e\u9996\u9818\u6575\u4eba\u61c9\u7528\u4e0a\u8ff0 HP \u6aa2\u67e5\u3002", 0);
                     DrawHorizontalRadioButton(AST_AOE_DivinationSubOption,
-                        "All Enemies", "Applies the HP check above to all enemies.", 1);
+                        "\u6240\u6709\u6575\u4eba", "\u5c07\u4e0a\u8ff0 HP \u6aa2\u67e5\u61c9\u7528\u65bc\u6240\u6709\u6575\u4eba\u3002", 1);
                     ImGui.Unindent();
                     break;
 
@@ -173,31 +173,31 @@ internal partial class AST
                     break;
 
                 case CustomComboPreset.AST_AOE_AutoDraw:
-                    DrawAdditionalBoolChoice(AST_AOE_DPS_OverwriteHealCards, "Overwrite Non-DPS Cards", "Will draw even if you have healing cards remaining.");
+                    DrawAdditionalBoolChoice(AST_AOE_DPS_OverwriteHealCards, "\u8986\u84cb\u975e DPS \u5361\u724c", "\u5373\u4f7f\u9084\u6709\u6cbb\u7642\u5361\u5269\u9918\uff0c\u4e5f\u6703\u57f7\u884c\u62bd\u5361\u3002");
                     break;
                 
                 case CustomComboPreset.AST_AOE_DPS_StellarDetonation:
                     DrawHorizontalRadioButton(AST_AOE_DPS_StellarDetonation_SubOption,
-                        "Non-boss Encounters Only", $"Non-Boss Encounters only", 0);
+                        "\u50c5\u9650\u975e\u9996\u9818\u6230", $"Non-Boss Encounters only", 0);
 
                     DrawHorizontalRadioButton(AST_AOE_DPS_StellarDetonation_SubOption,
-                        "All Content", $"All Content", 1);
+                        "\u5168\u90e8\u5167\u5bb9", $"\u5168\u90e8\u5167\u5bb9", 1);
                     
                     DrawSliderInt(0, 100, AST_AOE_DPS_StellarDetonation_Threshold,
-                        $"Use when Target is at or below HP% (0% = Never Detonate Early, 100% = Detonate ASAP).");
+                        $"\u7576\u76ee\u6a19 HP% \u5c0f\u65bc\u7b49\u65bc\u8a72\u503c\u6642\u4f7f\u7528\uff080% = \u4e0d\u63d0\u524d\u5f15\u7206\uff0c100% = \u7acb\u5373\u5f15\u7206\uff09\u3002");
                     break;
 
                 case CustomComboPreset.AST_AOE_DPS_MacroCosmos:
-                    DrawHorizontalRadioButton(AST_AOE_DPS_MacroCosmos_SubOption, "Non-boss Encounters Only", $"Will not use on bosses", 0);
-                    DrawHorizontalRadioButton(AST_AOE_DPS_MacroCosmos_SubOption, "All Content", $"Will use in all content", 1);
+                    DrawHorizontalRadioButton(AST_AOE_DPS_MacroCosmos_SubOption, "\u50c5\u9650\u975e\u9996\u9818\u6230", $"Will not use on bosses", 0);
+                    DrawHorizontalRadioButton(AST_AOE_DPS_MacroCosmos_SubOption, "\u5168\u90e8\u5167\u5bb9", $"Will use in all content", 1);
                     break;
                 
                 case CustomComboPreset.AST_AOE_DPS_DoT:
                     DrawSliderInt(0, 100, AST_AOE_DPS_DoT_HPThreshold, "Target HP% to stop using (0 = Use Always, 100 = Never)");
                     ImGui.Indent();
-                    DrawRoundedSliderFloat(0, 5, AST_AOE_DPS_DoT_Reapply,  "Seconds remaining before reapplying (0 = Do not reapply early)", digits: 1);
+                    DrawRoundedSliderFloat(0, 5, AST_AOE_DPS_DoT_Reapply,  "剩餘多少秒重新應用（0=不提前重新應用）", digits: 1);
                     ImGui.Unindent();
-                    DrawSliderInt(0, 10, AST_AOE_DPS_DoT_MaxTargets, "Maximum number of targets to employ multi-dotting ");
+                    DrawSliderInt(0, 10, AST_AOE_DPS_DoT_MaxTargets, "\u591a\u76ee\u6a19DOT\u7684\u6700\u5927\u76ee\u6a19\u6578");
                     break;
 
                 #endregion
@@ -209,7 +209,7 @@ internal partial class AST
                     {
                         ImGui.Indent();
                         ImGui.Spacing();
-                        DrawAdditionalBoolChoice(AST_ST_SimpleHeals_IncludeShields, "Include Shields in HP Percent Sliders", "");
+                        DrawAdditionalBoolChoice(AST_ST_SimpleHeals_IncludeShields, "\u5728 HP% \u6ed1\u584a\u4e2d\u5305\u62ec\u8b77\u76fe", "");
                         ImGui.Unindent();
                     }
                     break;
@@ -219,71 +219,71 @@ internal partial class AST
                     break;
                 
                 case CustomComboPreset.AST_ST_Heals_CelestialIntersection:
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_CelestialIntersection, "Start using when below HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveIntersection, "Only Weave", "Will only weave this action.");
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_CelestialIntersection, "低於該HP百分比時開始使用（設為100則不檢查）");
+                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveIntersection, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_ST_SimpleHeals_Priority, 11, 0, $"{CelestialIntersection.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.AST_ST_Heals_EssentialDignity:
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_EssentialDignity, "Start using when below HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveDignity, "Only Weave", "Will only weave this action.");
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_EssentialDignity, "低於該HP百分比時開始使用（設為100則不檢查）");
+                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveDignity, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_ST_SimpleHeals_Priority, 11, 1, $"{EssentialDignity.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.AST_ST_Heals_Exaltation:
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_Exaltation, "Start using when below HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveExalt, "Only Weave", "Will only weave this action.");
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_Exaltation, "低於該HP百分比時開始使用（設為100則不檢查）");
+                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveExalt, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_ST_SimpleHeals_Priority, 11, 2, $"{Exaltation.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.AST_ST_Heals_Bole:
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_Bole, "Start using when below HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveBole, "Only Weave", "Will only weave this action.");
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_Bole, "低於該HP百分比時開始使用（設為100則不檢查）");
+                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveBole, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_ST_SimpleHeals_Priority, 11, 3, $"{Bole.ActionName()} Priority: ");
                     break;
 
                 case CustomComboPreset.AST_ST_Heals_Arrow:
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_Arrow, "Start using when below HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveArrow, "Only Weave", "Will only weave this action.");
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_Arrow, "低於該HP百分比時開始使用（設為100則不檢查）");
+                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveArrow, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_ST_SimpleHeals_Priority, 11, 4, $"{Arrow.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.AST_ST_Heals_Ewer:
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_Ewer, "Start using when below HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveEwer, "Only Weave", "Will only weave this action.");
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_Ewer, "低於該HP百分比時開始使用（設為100則不檢查）");
+                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveEwer, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_ST_SimpleHeals_Priority, 11, 5, $"{Ewer.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.AST_ST_Heals_Spire:
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_Spire, "Start using when below HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveSpire, "Only Weave", "Will only weave this action.");
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_Spire, "低於該HP百分比時開始使用（設為100則不檢查）");
+                    DrawAdditionalBoolChoice(AST_ST_SimpleHeals_WeaveSpire, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_ST_SimpleHeals_Priority, 11, 6, $"{Spire.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.AST_ST_Heals_AspectedBenefic:
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_AspectedBeneficHigh, "Start using when below HP %. Set to 100 to disable this check");
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_AspectedBeneficLow, "Stop using when below set percentage");
-                    DrawSliderInt(0, 15, AST_ST_SimpleHeals_AspectedBeneficRefresh, "Seconds remaining before reapplying (0 = Do not reapply early)");
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_AspectedBeneficHigh, "低於該HP百分比時開始使用（設為100則不檢查）");
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_AspectedBeneficLow, "低於該百分比時停止使用");
+                    DrawSliderInt(0, 15, AST_ST_SimpleHeals_AspectedBeneficRefresh, "剩餘多少秒重新應用（0=不提前重新應用）");
                     DrawPriorityInput(AST_ST_SimpleHeals_Priority, 11, 7, $"{AspectedBenefic.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.AST_ST_Heals_CelestialOpposition:
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_CelestialOpposition, "Start using when below HP %. Set to 100 to disable this check");
-                    DrawHorizontalMultiChoice(AST_ST_SimpleHeals_CelestialOppositionOptions,"Only Weave", "Will only weave this action.", 2, 0);
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_CelestialOpposition, "低於該HP百分比時開始使用（設為100則不檢查）");
+                    DrawHorizontalMultiChoice(AST_ST_SimpleHeals_CelestialOppositionOptions,"\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002", 2, 0);
                     DrawHorizontalMultiChoice(AST_ST_SimpleHeals_CelestialOppositionOptions," Not On Bosses", "Will not use on ST in Boss encounters.", 2, 1);
                     DrawPriorityInput(AST_ST_SimpleHeals_Priority, 11, 8, $"{CelestialOpposition.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.AST_ST_Heals_CollectiveUnconscious:
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_CollectiveUnconscious, "Start using when below HP %. Set to 100 to disable this check");
-                    DrawHorizontalMultiChoice(AST_ST_SimpleHeals_CollectiveUnconsciousOptions,"Only Weave", "Will only weave this action.", 2, 0);
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_CollectiveUnconscious, "低於該HP百分比時開始使用（設為100則不檢查）");
+                    DrawHorizontalMultiChoice(AST_ST_SimpleHeals_CollectiveUnconsciousOptions,"\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002", 2, 0);
                     DrawHorizontalMultiChoice(AST_ST_SimpleHeals_CollectiveUnconsciousOptions," Not On Bosses", "Will not use on ST in Boss encounters.", 2, 1);
                     DrawPriorityInput(AST_ST_SimpleHeals_Priority, 11, 9, $"{CollectiveUnconscious.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.AST_ST_Heals_SoloLady:
-                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_SoloLady, "Start using when below HP %. Set to 100 to disable this check");
-                    DrawHorizontalMultiChoice(AST_ST_SimpleHeals_SoloLadyOptions,"Only Weave", "Will only weave this action.", 2, 0);
+                    DrawSliderInt(0, 100, AST_ST_SimpleHeals_SoloLady, "低於該HP百分比時開始使用（設為100則不檢查）");
+                    DrawHorizontalMultiChoice(AST_ST_SimpleHeals_SoloLadyOptions,"\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002", 2, 0);
                     DrawHorizontalMultiChoice(AST_ST_SimpleHeals_SoloLadyOptions," Not On Bosses", "Will not use on ST in Boss encounters.", 2, 1);
                     DrawPriorityInput(AST_ST_SimpleHeals_Priority, 11, 10, $"{LadyOfCrown.ActionName()} Priority: ");
                     break;
@@ -300,38 +300,38 @@ internal partial class AST
 
                 case CustomComboPreset.AST_AoE_Heals_LazyLady:
                     DrawSliderInt(0, 100, AST_AoE_SimpleHeals_LazyLady, "Start using when below party average HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveLady, "Only Weave", "Will only weave this action.");
+                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveLady, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_AoE_SimpleHeals_Priority, 9, 0, $"{LadyOfCrown.ActionName()} Priority: ");
                     break;
 
                 case CustomComboPreset.AST_AoE_Heals_Horoscope:
                     DrawSliderInt(0, 100, AST_AoE_SimpleHeals_Horoscope, "Start using when below party average HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveHoroscope, "Only Weave", "Will only weave this action.");
+                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveHoroscope, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_AoE_SimpleHeals_Priority, 9, 1, $"{Horoscope.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.AST_AoE_Heals_HoroscopeHeal:
                     DrawSliderInt(0, 100, AST_AoE_SimpleHeals_HoroscopeHeal, "Start using when below party average HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveHoroscopeHeal, "Only Weave", "Will only weave this action.");
+                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveHoroscopeHeal, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_AoE_SimpleHeals_Priority, 9, 2, $"{HoroscopeHeal.ActionName()} Priority: ");
                     break;
 
                 case CustomComboPreset.AST_AoE_Heals_CelestialOpposition:
                     DrawSliderInt(0, 100, AST_AoE_SimpleHeals_CelestialOpposition, "Start using when below party average HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveOpposition, "Only Weave", "Will only weave this action.");
+                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveOpposition, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_AoE_SimpleHeals_Priority, 9, 3, $"{CelestialOpposition.ActionName()} Priority: ");
                     break;
 
 
                 case CustomComboPreset.AST_AoE_Heals_NeutralSect:
                     DrawSliderInt(0, 100, AST_AoE_SimpleHeals_NeutralSect, "Start using when below party average HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveNeutralSect, "Only Weave", "Will only weave this action.");
+                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveNeutralSect, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_AoE_SimpleHeals_Priority, 9, 4, $"{NeutralSect.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.AST_AoE_Heals_StellarDetonation:
                     DrawSliderInt(0, 100, AST_AoE_SimpleHeals_StellarDetonation, "Start using when below party average HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveStellarDetonation, "Only Weave", "Will only weave this action.");
+                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveStellarDetonation, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_AoE_SimpleHeals_Priority, 9, 5, $"{StellarDetonation.ActionName()} Priority: ");
                     break;
                 
@@ -347,7 +347,7 @@ internal partial class AST
                 
                 case CustomComboPreset.AST_AoE_Heals_CollectiveUnconscious:
                     DrawSliderInt(0, 100, AST_AoE_SimpleHeals_CollectiveUnconscious, "Start using when below party average HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveCollectiveUnconscious, "Only Weave", "Will only weave this action.");
+                    DrawAdditionalBoolChoice(AST_AoE_SimpleHeals_WeaveCollectiveUnconscious, "\u50c5\u63d2\u5165", "\u50c5\u6703\u5728\u63d2\u5165\u80fd\u529b\u6280\u6642\u4f7f\u7528\u6b64\u6280\u80fd\u3002");
                     DrawPriorityInput(AST_AoE_SimpleHeals_Priority, 9, 8, $"{CollectiveUnconscious.ActionName()} Priority: ");
                     break;
                 
@@ -356,18 +356,18 @@ internal partial class AST
                 #region Standalone
                 case CustomComboPreset.AST_Cards_QuickTargetCards:
                     DrawAdditionalBoolChoice(AST_QuickTarget_Manuals,
-                        "Also Retarget manually-used Cards",
-                        "Will also automatically target Cards that you manually use, as in, those outside of your damage rotations.",
+                        "同時重定向手動使用的卡牌",
+                        "會自動為你手動使用的卡牌（即非輸出迴圈中的卡牌）選擇目標。",
                         indentDescription: true);
 
                     ImGui.Indent();
                     ImGui.TextWrapped("目標覆寫選項：（將滑鼠移至各選項可查看詳細資訊）");
                     ImGui.Unindent();
                     ImGui.NewLine();
-                    DrawRadioButton(AST_QuickTarget_Override, "No Override", "Will not override the automatic party target viability checking with any manual input.\nThe cards will be targeted according to The Balance's priorities and status checking\n(like not doubling up on cards, and no damage down, etc.).", 0, descriptionAsTooltip: true);
-                    DrawRadioButton(AST_QuickTarget_Override, "Hard Target Override", "Overrides selection with hard target, if you have one that is in range and does not have damage down or rez sickness.", 1, descriptionAsTooltip: true);
-                    DrawRadioButton(AST_QuickTarget_Override, "UI MouseOver Override", "Overrides selection with UI MouseOver target, if you have one that is in range and does not have damage down or rez sickness.", 2, descriptionAsTooltip: true);
-                    DrawRadioButton(AST_QuickTarget_Override, "Any MouseOver Override", "Overrides selection with UI or Nameplate or Model MouseOver target (in that order), if you have one that is in range and does not have damage down or rez sickness.", 3, descriptionAsTooltip: true);
+                    DrawRadioButton(AST_QuickTarget_Override, "不覆蓋", "不會用任何手動輸入覆蓋自動隊伍目標檢測。\n卡牌會根據The Balance的優先順序和狀態檢測自動選擇目標（如不會重複髮卡、不會發給有傷害降低或復活虛弱的目標等）。", 0, descriptionAsTooltip: true);
+                    DrawRadioButton(AST_QuickTarget_Override, "強制目標覆蓋", "如果你有一個在範圍內且沒有傷害降低或復活虛弱的強制目標，將用該目標覆蓋選擇。", 1, descriptionAsTooltip: true);
+                    DrawRadioButton(AST_QuickTarget_Override, "UI滑鼠懸停覆蓋", "如果你有一個在範圍內且沒有傷害降低或復活虛弱的UI滑鼠懸停目標，將用該目標覆蓋選擇。", 2, descriptionAsTooltip: true);
+                    DrawRadioButton(AST_QuickTarget_Override, "任意滑鼠懸停覆蓋", "如果你有一個在範圍內且沒有傷害降低或復活虛弱的UI、姓名板或模型滑鼠懸停目標（按此順序），將用該目標覆蓋選擇。", 3, descriptionAsTooltip: true);
                     break;
                 #endregion
             }

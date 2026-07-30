@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.CompilerServices;
 using WrathCombo.CustomComboNS.Functions;
+using WrathCombo.Resources.Dictionary.Chinese;
 
 namespace WrathCombo.Attributes;
 
@@ -17,8 +18,8 @@ internal class CustomComboInfoAttribute : Attribute
     //// <param name="memeDescription"> Meme description. </param>
     internal CustomComboInfoAttribute(string name, string description, byte jobID, [CallerLineNumber] int order = 0)
     {
-        Name = name;
-        Description = description;
+        Name = name.ReplaceWithChinese();
+        Description = description.ReplaceWithChinese();
         JobID = jobID;
         Order = order;
     }

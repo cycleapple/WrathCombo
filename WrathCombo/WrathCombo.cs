@@ -60,7 +60,7 @@ public sealed partial class WrathCombo : IDalamudPlugin
     internal ActionRetargeting ActionRetargeting = new();
     internal MovementHook MoveHook;
 
-    private readonly TextPayload starterMotd = new("[Wrath Message of the Day] ");
+    private readonly TextPayload starterMotd = new("[Wrath 日報] ");
     private static uint? jobID;
     private static bool inInstancedContent;
 
@@ -188,8 +188,8 @@ public sealed partial class WrathCombo : IDalamudPlugin
             ToggleAutoRotation(!Service.Configuration.RotationConfig.Enabled);
         };
         DtrBarEntry.Tooltip = new SeString(
-        new TextPayload("Click to toggle Wrath Combo's Auto-Rotation.\n"),
-        new TextPayload("Disable this icon in /xlsettings -> Server Info Bar"));
+        new TextPayload("點選切換Wrath Combo的自動迴圈開關狀態。\n"),
+        new TextPayload("可在/xlsettings -> 伺服器資訊欄中禁用此圖示"));
 
         Svc.ClientState.Login += PrintLoginMessage;
         if (Svc.ClientState.IsLoggedIn) ResetFeatures();
@@ -308,12 +308,12 @@ public sealed partial class WrathCombo : IDalamudPlugin
             ? BitmapFontIcon.SwordUnsheathed
             : BitmapFontIcon.SwordSheathed);
 
-        var text = autoOn ? ": On" : ": Off";
+        var text = autoOn ? "：開" : "：關";
         if (!Service.Configuration.ShortDTRText && autoOn)
-            text += $" ({P.IPCSearch.ActiveJobPresets} active)";
+            text += $"（{P.IPCSearch.ActiveJobPresets} 有效）";
         var ipcControlledText =
             P.UIHelper.AutoRotationStateControlled() is not null
-                ? " (Locked)"
+                ? "（已鎖定）"
                 : "";
 
         var payloadText = new TextPayload(text + ipcControlledText);
@@ -363,8 +363,8 @@ public sealed partial class WrathCombo : IDalamudPlugin
     {
         try
         {
-            var basicMessage = $"Welcome to WrathCombo v{this.GetType().Assembly
-                .GetName().Version}!";
+            var basicMessage = $"歡迎使用 WrathCombo ，當前版本：v{this.GetType().Assembly
+                .GetName().Version}！";
             using var motd =
                 httpClient.GetAsync("https://raw.githubusercontent.com/PunishXIV/WrathCombo/main/res/motd.txt").Result;
             motd.EnsureSuccessStatusCode();

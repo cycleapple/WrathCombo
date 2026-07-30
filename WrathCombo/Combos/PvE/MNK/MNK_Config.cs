@@ -87,11 +87,11 @@ internal partial class MNK
 
                 case CustomComboPreset.MNK_STUseOpener:
                     DrawHorizontalRadioButton(MNK_SelectedOpener,
-                        "Double Lunar", "Uses Lunar/Lunar opener",
+                        "\u96d9\u9670", "Uses Lunar/Lunar opener",
                         0);
 
                     DrawHorizontalRadioButton(MNK_SelectedOpener,
-                        "Solar Lunar", "Uses Solar/Lunar opener",
+                        "\u9670\u967d", "Uses Solar/Lunar opener",
                         1);
 
                     ImGui.NewLine();

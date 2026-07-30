@@ -23,16 +23,16 @@ internal partial class All
             {
                 case CustomComboPreset.ALL_Tank_Reprisal:
                     UserConfig.DrawSliderInt(0, 9, ALL_Tank_Reprisal_Threshold,
-                        "Time Remaining on others' Reprisal to allow within\n(0=Reprisal must not be on the target)");
+                        "允許其他人雪仇剩餘時間\n(0=目標上不能有雪仇效果)");
                     break;
                 
                 case CustomComboPreset.ALL_Healer_RescueRetargeting:
                     ImGui.Indent();
                     ImGuiEx.TextWrapped(ImGuiColors.DalamudYellow, "介面滑鼠指向 > 場景滑鼠指向 > 焦點目標 > 軟目標 > 硬目標");
                     ImGui.Unindent();
-                    UserConfig.DrawHorizontalMultiChoice(ALL_Healer_RescueRetargetingOptions,"Field Mouseover", "Will add Field Mouseover to the priority stack", 3, 0);
-                    UserConfig.DrawHorizontalMultiChoice(ALL_Healer_RescueRetargetingOptions,"Focus Target", "Will add Focus Target to the priority stack", 3, 1);
-                    UserConfig.DrawHorizontalMultiChoice(ALL_Healer_RescueRetargetingOptions,"Soft Target", "Will add Soft Target to the priority stack", 3, 2);
+                    UserConfig.DrawHorizontalMultiChoice(ALL_Healer_RescueRetargetingOptions,"場景滑鼠懸停", "將場景滑鼠懸停新增到優先順序集合", 3, 0);
+                    UserConfig.DrawHorizontalMultiChoice(ALL_Healer_RescueRetargetingOptions,"焦點目標", "將焦點目標新增到優先順序集合", 3, 1);
+                    UserConfig.DrawHorizontalMultiChoice(ALL_Healer_RescueRetargetingOptions,"軟目標", "將軟目標新增到優先順序集合", 3, 2);
                     break;
             }
         }

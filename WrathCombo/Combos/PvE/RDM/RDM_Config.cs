@@ -53,7 +53,7 @@ internal partial class RDM
                 
                 case CustomComboPreset.RDM_ST_Corpsacorps:
                     DrawSliderInt(0, 25, RDM_ST_Corpsacorps_Distance,
-                        " Use when Distance from target is less than or equal to:");
+                        "\u7576\u8207\u76ee\u6a19\u7684\u8ddd\u96e2\u5c0f\u65bc\u6216\u7b49\u65bc\u6642\u4f7f\u7528\uff1a");
                     
                     DrawSliderInt(0, 3, RDM_ST_Corpsacorps_Time,
                         " How long you need to be stationary to use. Zero to disable");
@@ -61,7 +61,7 @@ internal partial class RDM
                 
                 case CustomComboPreset.RDM_AoE_Corpsacorps:
                     DrawSliderInt(0, 25, RDM_AoE_Corpsacorps_Distance,
-                        " Use when Distance from target is less than or equal to:");
+                        "\u7576\u8207\u76ee\u6a19\u7684\u8ddd\u96e2\u5c0f\u65bc\u6216\u7b49\u65bc\u6642\u4f7f\u7528\uff1a");
                     DrawSliderInt(0, 3, RDM_AoE_Corpsacorps_Time,
                         " How long you need to be stationary to use. Zero to disable");
                     break;

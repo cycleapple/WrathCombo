@@ -40,13 +40,13 @@ internal partial class SGE
                     ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
 
                     DrawHorizontalRadioButton(SGE_ST_DPS_EDosisSubOption,
-                        "Non-Bosses", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
+                        "\u5c0f\u602a", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
 
                     DrawHorizontalRadioButton(SGE_ST_DPS_EDosisSubOption,
-                        "All Enemies", "Applies the HP check above to all enemies.", 1);
+                        "\u6240\u6709\u6575\u4eba", "\u5c07\u4e0a\u8ff0 HP \u6aa2\u67e5\u61c9\u7528\u65bc\u6240\u6709\u6575\u4eba\u3002", 1);
 
                     DrawRoundedSliderFloat(0, 5, SGE_ST_DPS_EDosisRefresh,
-                        "Seconds remaining before reapplying the DoT. Set to Zero to disable this check.", digits: 1);
+                        "剩餘多少秒應用DoT。設定為零禁用此檢測。", digits: 1);
                     ImGui.Unindent();
                     break;
 
@@ -64,11 +64,11 @@ internal partial class SGE
                     if (!SGE_ST_DPS_Phlegma_Burst)
                     {
                         DrawSliderInt(0, 1, SGE_ST_DPS_Phlegma,
-                            "Number of charges to hold onto\nBurst will use all charges regardless of choice.");
+                            "保留的發炎充能數\n爆發時會無視此設定消耗所有充能。");
                     }
 
                     DrawAdditionalBoolChoice(SGE_ST_DPS_Phlegma_Burst,
-                        "Burst option", "Save Phlegma charges for burst.");
+                        "爆發模式", "為爆發階段保留髮炎充能。");
                     break;
 
                 case CustomComboPreset.SGE_ST_DPS_AddersgallProtect:
@@ -127,7 +127,7 @@ internal partial class SGE
                     {
                         ImGui.Indent();
                         DrawAdditionalBoolChoice(SGE_ST_Heal_IncludeShields,
-                            "Include Shields in HP Percent Sliders", "");
+                            "\u5728 HP% \u6ed1\u584a\u4e2d\u5305\u62ec\u8b77\u76fe", "");
                         ImGui.Unindent();
                     }
                     break;
@@ -205,7 +205,7 @@ internal partial class SGE
                         "Sage Shield Check", "Enable to not override an existing Sage's shield.", 2, 0);
 
                     DrawHorizontalMultiChoice(SGE_ST_Heal_EDiagnosisOpts,
-                        "Scholar Shield Check", "Enable to not override an existing Scholar's shield.", 2, 1);
+                        "學者護盾檢查", "Enable to not override an existing Scholar's shield.", 2, 1);
 
                     DrawPriorityInput(SGE_ST_Heals_Priority,
                         12, 7, $"{EukrasianDiagnosis.ActionName()} Priority: ");
@@ -265,7 +265,7 @@ internal partial class SGE
                         "Start using when below party average HP %. Set to 100 to disable this check");
 
                     DrawAdditionalBoolChoice(SGE_AoE_Heal_KeracholeTrait,
-                        "Check for Enhanced Kerachole Trait (Heal over Time)", $"Enabling this will prevent {Kerachole.ActionName()} from being used when the Heal over Time trait is unavailable.");
+                        "檢查強化堅角清汁特性（持續治療）", $"啟用後，當{Kerachole.ActionName()}的持續治療特性不可用時，將不會使用該技能。");
 
                     DrawPriorityInput(SGE_AoE_Heals_Priority,
                         9, 0, $"{Kerachole.ActionName()} Priority: ");
@@ -327,7 +327,7 @@ internal partial class SGE
                         "Start using when below party average HP %. Set to 100 to disable this check");
 
                     DrawAdditionalBoolChoice(SGE_AoE_Heal_ZoePneuma,
-                        "Pneuma Option", "Chain to Pneuma After.");
+                        "\u9b42\u9748\u98a8\u606f", "Chain to Pneuma After.");
 
                     DrawPriorityInput(SGE_AoE_Heals_Priority,
                         9, 7, $"{Pneuma.ActionName()} Priority: ");
@@ -335,7 +335,7 @@ internal partial class SGE
 
                 case CustomComboPreset.SGE_AoE_Heal_EPrognosis:
                     DrawSliderInt(0, 100, SGE_AoE_Heal_EPrognosisOption,
-                        "Shield Check: Percentage of Party Members without shields to check for.");
+                        "\u8b77\u76fe\u6aa2\u67e5\uff1a\u7121\u8b77\u76fe\u968a\u54e1\u767e\u5206\u6bd4\u95be\u503c");
 
                     DrawPriorityInput(SGE_AoE_Heals_Priority,
                         9, 8, $"{EukrasianPrognosis.ActionName()} Priority: ");

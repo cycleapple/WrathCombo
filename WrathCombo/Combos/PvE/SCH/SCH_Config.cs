@@ -46,12 +46,12 @@ internal partial class SCH
                     ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
 
                     DrawHorizontalRadioButton(SCH_DPS_BioSubOption,
-                        "Non-Bosses", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
+                        "\u5c0f\u602a", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
 
                     DrawHorizontalRadioButton(SCH_DPS_BioSubOption,
-                        "All Enemies", "Applies the HP check above to all enemies.", 1);
+                        "\u6240\u6709\u6575\u4eba", "\u5c07\u4e0a\u8ff0 HP \u6aa2\u67e5\u61c9\u7528\u65bc\u6240\u6709\u6575\u4eba\u3002", 1);
 
-                    DrawRoundedSliderFloat(0, 4, SCH_DPS_BioUptime_Threshold, "Seconds remaining before reapplying the DoT. Set to Zero to disable this check.", digits: 1);
+                    DrawRoundedSliderFloat(0, 4, SCH_DPS_BioUptime_Threshold, "重新應用DoT前剩餘秒數。設定為零以禁用此檢查。", digits: 1);
 
                     ImGui.Unindent();
 
@@ -66,10 +66,10 @@ internal partial class SCH
                     ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
                     
                     DrawHorizontalRadioButton(SCH_ST_DPS_ChainStratagemSubOption,
-                        "Non-Bosses", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
+                        "\u5c0f\u602a", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
 
                     DrawHorizontalRadioButton(SCH_ST_DPS_ChainStratagemSubOption,
-                        "All Enemies", "Applies the HP check above to all enemies.", 1);
+                        "\u6240\u6709\u6575\u4eba", "\u5c07\u4e0a\u8ff0 HP \u6aa2\u67e5\u61c9\u7528\u65bc\u6240\u6709\u6575\u4eba\u3002", 1);
                     
                     ImGui.Unindent();
                     
@@ -97,10 +97,10 @@ internal partial class SCH
                     ImGui.TextColored(ImGuiColors.DalamudYellow, "選擇要套用 HP 檢查的敵人類型：");
                     
                     DrawHorizontalRadioButton(SCH_AoE_DPS_ChainStratagemSubOption,
-                        "Non-Bosses", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
+                        "\u5c0f\u602a", "Only applies the HP check above to non-bosses.\nAllows you to only stop DoTing early when it's not a boss.", 0);
 
                     DrawHorizontalRadioButton(SCH_AoE_DPS_ChainStratagemSubOption,
-                        "All Enemies", "Applies the HP check above to all enemies.", 1);
+                        "\u6240\u6709\u6575\u4eba", "\u5c07\u4e0a\u8ff0 HP \u6aa2\u67e5\u61c9\u7528\u65bc\u6240\u6709\u6575\u4eba\u3002", 1);
                     
                     ImGui.Unindent();
                     
@@ -118,7 +118,7 @@ internal partial class SCH
                     ImGui.Indent();
                     DrawRoundedSliderFloat(0, 5, SCH_AoE_ADV_DPS_DoT_Reapply,  "Seconds remaining before reapplying (0 = Do not reapply early)", digits: 1);
                     ImGui.Unindent();
-                    DrawSliderInt(0, 10, SCH_AoE_ADV_DPS_DoT_MaxTargets, "Maximum number of targets to employ multi-dotting ");
+                    DrawSliderInt(0, 10, SCH_AoE_ADV_DPS_DoT_MaxTargets, "\u591a\u76ee\u6a19DOT\u7684\u6700\u5927\u76ee\u6a19\u6578");
                     break;
                 #endregion
                 
@@ -240,18 +240,18 @@ internal partial class SCH
 
                 case CustomComboPreset.SCH_AoE_Heal_Indomitability:
                     DrawSliderInt(0, 100, SCH_AoE_Heal_IndomitabilityOption, "Start using when below party average HP %. Set to 100 to disable this check");
-                    DrawAdditionalBoolChoice(SCH_AoE_Heal_Indomitability_Recitation, "Recitation Option", "Will use Recitation to buff Indomitability.");
+                    DrawAdditionalBoolChoice(SCH_AoE_Heal_Indomitability_Recitation, "\u79d8\u7b56", "Will use Recitation to buff Indomitability.");
                     DrawPriorityInput(SCH_AoE_Heals_Priority, 8, 5, $"{Indomitability.ActionName()} Priority: ");
                     break;
                 
                 case CustomComboPreset.SCH_AoE_Heal_Aetherflow:
                     DrawAdditionalBoolChoice(SCH_AoE_Heal_Aetherflow_Indomitability,
-                        "Indomitability Ready Only Option", "Only uses Aetherflow if Indomitability is ready to use.");
+                        "不屈不撓之策可用時", "僅在不屈不撓之策可用時才使用以太超流。");
                     break;
                 
                 case CustomComboPreset.SCH_AoE_Heal_Dissipation:
                     DrawAdditionalBoolChoice(SCH_AoE_Heal_Dissipation_Indomitability,
-                        "Indomitability Ready Only Option", "Only uses Dissipation if Indomitability is ready to use.");
+                        "不屈不撓之策可用時", "僅在不屈不撓之策可用時才使用轉化。");
                     break;
                 
                 #endregion
@@ -292,7 +292,7 @@ internal partial class SCH
                     break; 
                 
                 case CustomComboPreset.SCH_Raidwide_Succor:
-                    DrawAdditionalBoolChoice(SCH_Raidwide_Succor_Recitation, "Recitation Option", "Use Recitation to buff before the Raidwide Succor.");
+                    DrawAdditionalBoolChoice(SCH_Raidwide_Succor_Recitation, "\u79d8\u7b56", "Use Recitation to buff before the Raidwide Succor.");
                     break;
                 
                 #endregion

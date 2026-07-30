@@ -155,7 +155,7 @@ namespace WrathCombo.Window.Functions
                 if (!Service.Configuration.AutoActions.ContainsKey(preset))
                     Service.Configuration.AutoActions[preset] = false;
 
-                var label = "Auto-Mode";
+                var label = "\u81ea\u52d5\u6a21\u5f0f";
                 var labelSize = ImGui.CalcTextSize(label);
                 ImGui.SetCursorPosX(ImGui.GetContentRegionAvail().X - labelSize.X.Scale() - 64f.Scale());
                 bool autoOn = Service.Configuration.AutoActions[preset];
@@ -231,7 +231,7 @@ namespace WrathCombo.Window.Functions
 
             if (conflicts.Length > 0)
             {
-                ImGui.TextColored(ImGuiColors.DalamudRed, "Conflicts with:");
+                ImGui.TextColored(ImGuiColors.DalamudRed, "\u885d\u7a81\u65bc\uff1a");
                 StringBuilder conflictBuilder = new();
                 ImGui.Indent();
                 foreach (var conflict in conflicts)
@@ -521,11 +521,11 @@ namespace WrathCombo.Window.Functions
 
         public static void DrawRetargetedSymbolForSettingsPage() =>
             DrawRetargetedAttribute(
-                firstLine: "This Feature will involve retargeting actions if enabled.",
-                secondLine: "The actions this Feature affects will automatically be\n" +
-                            "targeted onto the targets in the priority you have configured.",
-                thirdLine: "Using plugins like Redirect or Reaction with configurations\n" +
-                           "affecting the same actions will Conflict and may cause issues.");
+                firstLine: "啟用後，該功能將涉及重定向技能目標。",
+                secondLine: "此功能影響的技能會自動按照你配置的優先順序\n" +
+                            "依次選定目標進行施放。",
+                thirdLine: "如同時使用Redirect或Reaction等外掛，\n" +
+                           "並對相同技能有重定向設定，可能會產生衝突或異常。");
 
         private static void DrawRetargetedAttribute
             (CustomComboPreset? preset = null,
@@ -580,7 +580,7 @@ namespace WrathCombo.Window.Functions
                     {
                         if (possiblyRetargeted)
                             ImGui.TextUnformatted(
-                                "This Feature's actions may be retargeted.");
+                                "\u8a72\u529f\u80fd\u7684\u6280\u80fd\u53ef\u80fd\u6703\u88ab\u91cd\u5b9a\u5411\u3002");
                         if (retargeted)
                             ImGui.TextUnformatted(
                                 firstLine ??

@@ -41,7 +41,7 @@ internal class RetargetedAttribute : RetargetedAttributeBase
 internal class PossiblyRetargetedAttribute : RetargetedAttributeBase
 {
     private const string DefaultSettingInfo =
-        "Settings Tab > Retarget (Single Target) Healing Actions";
+        "外掛設定 > 重定向（單體）治療技能";
     private const Condition DefaultCondition =
         Condition.RetargetHealingActionsEnabled;
     
