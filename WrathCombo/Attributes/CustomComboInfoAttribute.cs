@@ -18,11 +18,17 @@ internal class CustomComboInfoAttribute : Attribute
     //// <param name="memeDescription"> Meme description. </param>
     internal CustomComboInfoAttribute(string name, string description, byte jobID, [CallerLineNumber] int order = 0)
     {
+        InternalName = name;
         Name = name.ReplaceWithChinese();
         Description = description.ReplaceWithChinese();
         JobID = jobID;
         Order = order;
     }
+
+    /// <summary>
+    /// Gets the untranslated metadata name used by internal classification and IPC.
+    /// </summary>
+    public string InternalName { get; }
 
     /// <summary> Gets the display name. </summary>
     public string Name { get; }
