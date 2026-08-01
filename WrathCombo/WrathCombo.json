@@ -7,7 +7,7 @@
   "Description": "將連段與互斥技能整合到單一按鍵，並提供自動循環及相關設定。",
   "RepoUrl": "https://github.com/cycleapple/WrathCombo/tree/api13-tw",
   "IconUrl": "https://s3.puni.sh/media/plugin/60/icon-2bwhkn3zf1f.png",
-  "Changelog": "完整更新記錄請參閱專案的 GitHub 或 Discord。",
+  "Changelog": "修正台服無法解析 ActionManager.GetRecastTime 簽名時，戰鬥循環每幀拋出例外的問題。冷卻資料改由 Action sheet 對應的冷卻群組直接讀取。",
   "Tags": [
     "combo",
     "wrath",
