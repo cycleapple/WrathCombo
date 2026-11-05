@@ -1,4 +1,4 @@
-﻿#region Directives
+#region Directives
 
 using System;
 using System.Linq;
@@ -33,7 +33,7 @@ using WrathCombo.Services.IPC;
 using static WrathCombo.CustomComboNS.Functions.CustomComboFunctions;
 using Action = Lumina.Excel.Sheets.Action;
 using ObjectKind = Dalamud.Game.ClientState.Objects.Enums.ObjectKind;
-using Status = Dalamud.Game.ClientState.Statuses.Status;
+using Status = Dalamud.Game.ClientState.Statuses.IStatus;
 using Dalamud.Interface;
 
 #endregion

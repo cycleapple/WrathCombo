@@ -1,4 +1,4 @@
-﻿using Dalamud.Game.ClientState.Conditions;
+using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.ClientState.Objects.Types;
 using Dalamud.Hooking;
 using ECommons;
@@ -172,7 +172,7 @@ public static class ActionWatching
             }
 
             // Skip Mounting or Consumables
-            if (actionType is ActionType.Mount or ActionType.Item)
+            if ((ActionType)actionType is ActionType.Mount or ActionType.Item)
                 return;
 
             // Event: Cast By Player (Excl. Auto-Attacks)
@@ -332,7 +332,7 @@ public static class ActionWatching
     {
         try
         {
-            if (actionType is ActionType.Action or ActionType.Ability)
+            if (actionType is ActionType.Action or ActionType.EventAction)
             {
                 var original = actionId; //Save the original action, do not modify
                 var originalTargetId = targetId; //Save the original target, do not modify

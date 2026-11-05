@@ -1,4 +1,4 @@
-﻿using Dalamud.Game.ClientState.JobGauge.Types;
+using Dalamud.Game.ClientState.JobGauge.Types;
 using Dalamud.Game.ClientState.Statuses;
 using System.Collections.Frozen;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace WrathCombo.Combos.PvE;
 
 internal partial class DRG
 {
-    internal static Status? ChaosDebuff =>
+    internal static IStatus? ChaosDebuff =>
         GetStatusEffect(ChaoticList[OriginalHook(ChaosThrust)], CurrentTarget);
 
     #region Lifesurge

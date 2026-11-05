@@ -1,4 +1,4 @@
-﻿using Dalamud.Game.ClientState.JobGauge.Types;
+using Dalamud.Game.ClientState.JobGauge.Types;
 using Dalamud.Game.ClientState.Objects.Types;
 using Dalamud.Game.ClientState.Statuses;
 using System;
@@ -13,10 +13,10 @@ namespace WrathCombo.Combos.PvE;
 
 internal partial class SGE
 {
-    internal static Status? DosisDebuff =>
+    internal static IStatus? DosisDebuff =>
         GetStatusEffect(DosisList[OriginalHook(Dosis)].Debuff, CurrentTarget);
 
-    internal static Status? DyskrasiaDebuff =>
+    internal static IStatus? DyskrasiaDebuff =>
         GetStatusEffect(Debuffs.EukrasianDyskrasia, CurrentTarget);
 
     internal static bool MaxPhlegma =>

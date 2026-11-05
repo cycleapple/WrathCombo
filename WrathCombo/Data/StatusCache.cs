@@ -1,4 +1,4 @@
-﻿using Dalamud.Game.ClientState.Objects.Types;
+using Dalamud.Game.ClientState.Objects.Types;
 using ECommons.DalamudServices;
 using ECommons.GameFunctions;
 using System;
@@ -7,7 +7,7 @@ using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.Linq;
 using static WrathCombo.CustomComboNS.Functions.CustomComboFunctions;
-using Status = Dalamud.Game.ClientState.Statuses.Status; // conflicts with structs if not defined
+using Status = Dalamud.Game.ClientState.Statuses.IStatus; // conflicts with structs if not defined
 
 namespace WrathCombo.Data
 {

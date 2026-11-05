@@ -356,7 +356,7 @@ internal partial class NIN : Melee
             if (actionID is not DeathBlossom)
                 return actionID;
 
-            Status? dotonBuff = GetStatusEffect(Buffs.Doton);
+            IStatus? dotonBuff = GetStatusEffect(Buffs.Doton);
             NINGauge gauge = GetJobGauge<NINGauge>();
             bool canWeave = CanWeave();
             bool chargeCheck = IsNotEnabled(CustomComboPreset.NIN_AoE_AdvancedMode_Ninjitsus_ChargeHold) || IsEnabled(CustomComboPreset.NIN_AoE_AdvancedMode_Ninjitsus_ChargeHold) && GetRemainingCharges(Ten) == 2;
@@ -789,7 +789,7 @@ internal partial class NIN : Melee
             if (actionID is not DeathBlossom)
                 return actionID;
 
-            Status? dotonBuff = GetStatusEffect(Buffs.Doton);
+            IStatus? dotonBuff = GetStatusEffect(Buffs.Doton);
             NINGauge gauge = GetJobGauge<NINGauge>();
             bool canWeave = CanWeave();
 

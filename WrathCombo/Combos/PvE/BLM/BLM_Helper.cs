@@ -1,4 +1,4 @@
-﻿using Dalamud.Game.ClientState.JobGauge.Types;
+using Dalamud.Game.ClientState.JobGauge.Types;
 using Dalamud.Game.ClientState.Statuses;
 using System.Collections.Frozen;
 using System.Collections.Generic;
@@ -29,10 +29,10 @@ internal partial class BLM
     internal static bool FlarestarReady =>
         LevelChecked(FlareStar) && AstralSoulStacks is 6;
 
-    internal static Status? ThunderDebuffST =>
+    internal static IStatus? ThunderDebuffST =>
         GetStatusEffect(ThunderList[OriginalHook(Thunder)], CurrentTarget);
 
-    internal static Status? ThunderDebuffAoE =>
+    internal static IStatus? ThunderDebuffAoE =>
         GetStatusEffect(ThunderList[OriginalHook(Thunder2)], CurrentTarget);
 
     internal static float TimeSinceFirestarterBuff =>

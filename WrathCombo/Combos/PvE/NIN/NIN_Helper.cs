@@ -1,4 +1,4 @@
-﻿using Dalamud.Game.ClientState.Statuses;
+using Dalamud.Game.ClientState.Statuses;
 using System.Collections.Frozen;
 using System.Collections.Generic;
 using WrathCombo.CustomComboNS;
@@ -162,7 +162,7 @@ internal partial class NIN
                HasStatusEffect(Debuffs.Dokumori, CurrentTarget);
     }
 
-    public static Status? MudraBuff => GetStatusEffect(Buffs.Mudra);
+    public static IStatus? MudraBuff => GetStatusEffect(Buffs.Mudra);
 
     public static uint CurrentNinjutsu => OriginalHook(Ninjutsu);
 

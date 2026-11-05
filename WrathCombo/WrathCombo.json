@@ -2,7 +2,7 @@
   "Author": "Team Wrath",
   "Name": "Wrath Combo",
   "InternalName": "WrathCombo",
-  "DalamudApiLevel": 13,
+  "DalamudApiLevel": 14,
   "Punchline": "將連段與互斥技能整合到單一按鍵，並提供更多便利功能。",
   "Description": "將連段與互斥技能整合到單一按鍵，並提供自動循環及相關設定。",
   "RepoUrl": "https://github.com/cycleapple/WrathCombo/tree/api13-tw",

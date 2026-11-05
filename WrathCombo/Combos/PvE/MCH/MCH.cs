@@ -137,7 +137,7 @@ internal partial class MCH : PhysicalRanged
             }
 
             // Full Metal Field
-            if (HasStatusEffect(Buffs.FullMetalMachinist, out Status? fullMetal) &&
+            if (HasStatusEffect(Buffs.FullMetalMachinist, out IStatus? fullMetal) &&
                 TargetIsBoss() && !JustUsed(BarrelStabilizer) &&
                 (GetCooldownRemainingTime(Wildfire) <= GCD || fullMetal.RemainingTime <= 6))
                 return FullMetalField;
@@ -305,7 +305,7 @@ internal partial class MCH : PhysicalRanged
             // Full Metal Field
             if (IsEnabled(CustomComboPreset.MCH_ST_Adv_Stabilizer_FullMetalField) &&
                 (MCH_ST_Adv_FullMetalMachinist_SubOption == 0 || TargetIsBoss()) &&
-                HasStatusEffect(Buffs.FullMetalMachinist, out Status? fullMetal) &&
+                HasStatusEffect(Buffs.FullMetalMachinist, out IStatus? fullMetal) &&
                 !JustUsed(BarrelStabilizer) &&
                 (fullMetal.RemainingTime <= 6 ||
                  GetCooldownRemainingTime(Wildfire) <= GCD ||

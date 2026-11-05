@@ -1,4 +1,4 @@
-﻿#region
+#region
 
 using System.Collections.Generic;
 using Dalamud.Game.ClientState.JobGauge.Types;
@@ -74,8 +74,8 @@ internal partial class WHM
                        GetTargetHPPercent(healTarget,
                            Config.WHM_STHeals_IncludeShields);
         float refreshTime = Config.WHM_STHeals_RegenTimer;
-        Status? regenHoT = GetStatusEffect(Buffs.Regen, healTarget);
-        Status? BenisonShield = GetStatusEffect(Buffs.DivineBenison, healTarget);
+        IStatus? regenHoT = GetStatusEffect(Buffs.Regen, healTarget);
+        IStatus? BenisonShield = GetStatusEffect(Buffs.DivineBenison, healTarget);
 
         switch (i)
         {
